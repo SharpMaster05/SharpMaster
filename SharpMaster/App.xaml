@@ -6,7 +6,10 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                
+                <ResourceDictionary Source="Styles/AppStyles.xaml"/>
+                <ResourceDictionary Source="Styles/UIElements/ButtonsStyle.xaml"/>
+                <ResourceDictionary Source="Styles/UIElements/BordersStyle.xaml"/>
+                <ResourceDictionary Source="Styles/UIElements/TextBlockStyles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
             <local:DI x:Key="DI"/>

@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 D:\CSharp\WPF\SharpMaster\SharpMaster\SharpMaster\App.xaml
-1-834700163
+7612119692
 
-12-1157466594
-248-758263814
-Views\Windows\MainWindow.xaml;
+16274711625
+2511629865366
+Styles\AppStyles.xaml;Styles\UIElements\BordersStyle.xaml;Styles\UIElements\ButtonsStyle.xaml;Styles\UIElements\TextBlockStyles.xaml;Views\Pages\BuildView.xaml;Views\Pages\PersonView.xaml;Views\Windows\MainWindow.xaml;
 
 True
 

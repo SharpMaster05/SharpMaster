@@ -166,3 +166,15 @@ D:\CSharp\WPF\SharpMaster\SharpMaster\SharpMaster\obj\Debug\net8.0-windows\refin
 D:\CSharp\WPF\SharpMaster\SharpMaster\SharpMaster\obj\Debug\net8.0-windows\SharpMaster.pdb
 D:\CSharp\WPF\SharpMaster\SharpMaster\SharpMaster\obj\Debug\net8.0-windows\SharpMaster.genruntimeconfig.cache
 D:\CSharp\WPF\SharpMaster\SharpMaster\SharpMaster\obj\Debug\net8.0-windows\ref\SharpMaster.dll
+D:\CSharp\WPF\SharpMaster\SharpMaster\SharpMaster\bin\Debug\net8.0-windows\MaterialDesignColors.dll
+D:\CSharp\WPF\SharpMaster\SharpMaster\SharpMaster\bin\Debug\net8.0-windows\MaterialDesignThemes.Wpf.dll
+D:\CSharp\WPF\SharpMaster\SharpMaster\SharpMaster\bin\Debug\net8.0-windows\Microsoft.Xaml.Behaviors.dll
+D:\CSharp\WPF\SharpMaster\SharpMaster\SharpMaster\obj\Debug\net8.0-windows\Styles\AppStyles.baml
+D:\CSharp\WPF\SharpMaster\SharpMaster\SharpMaster\obj\Debug\net8.0-windows\Styles\UIElements\BordersStyle.baml
+D:\CSharp\WPF\SharpMaster\SharpMaster\SharpMaster\obj\Debug\net8.0-windows\Styles\UIElements\ButtonsStyle.baml
+D:\CSharp\WPF\SharpMaster\SharpMaster\SharpMaster\obj\Debug\net8.0-windows\SharpMaster.sourcelink.json
+D:\CSharp\WPF\SharpMaster\SharpMaster\SharpMaster\obj\Debug\net8.0-windows\Styles\UIElements\TextBlockStyles.baml
+D:\CSharp\WPF\SharpMaster\SharpMaster\SharpMaster\obj\Debug\net8.0-windows\Views\Pages\BuildView.g.cs
+D:\CSharp\WPF\SharpMaster\SharpMaster\SharpMaster\obj\Debug\net8.0-windows\Views\Pages\PersonView.g.cs
+D:\CSharp\WPF\SharpMaster\SharpMaster\SharpMaster\obj\Debug\net8.0-windows\Views\Pages\BuildView.baml
+D:\CSharp\WPF\SharpMaster\SharpMaster\SharpMaster\obj\Debug\net8.0-windows\Views\Pages\PersonView.baml

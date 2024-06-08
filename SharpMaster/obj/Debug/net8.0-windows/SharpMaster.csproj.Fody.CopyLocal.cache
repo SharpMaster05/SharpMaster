@@ -1,6 +1,8 @@
 C:\Users\mrkol\.nuget\packages\automapper\13.0.1\lib\net6.0\AutoMapper.dll
 C:\Users\mrkol\.nuget\packages\azure.core\1.35.0\lib\net6.0\Azure.Core.dll
 C:\Users\mrkol\.nuget\packages\azure.identity\1.10.3\lib\netstandard2.0\Azure.Identity.dll
+C:\Users\mrkol\.nuget\packages\materialdesigncolors\3.0.0\lib\net7.0\MaterialDesignColors.dll
+C:\Users\mrkol\.nuget\packages\materialdesignthemes\5.0.0\lib\net7.0\MaterialDesignThemes.Wpf.dll
 C:\Users\mrkol\.nuget\packages\microsoft.bcl.asyncinterfaces\1.1.1\lib\netstandard2.1\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\mrkol\.nuget\packages\microsoft.data.sqlclient\5.1.5\lib\net6.0\Microsoft.Data.SqlClient.dll
 C:\Users\mrkol\.nuget\packages\microsoft.entityframeworkcore\8.0.6\lib\net8.0\Microsoft.EntityFrameworkCore.dll
@@ -35,6 +37,7 @@ C:\Users\mrkol\.nuget\packages\microsoft.sqlserver.server\1.0.0\lib\netstandard2
 C:\Users\mrkol\.nuget\packages\microsoft.web.webview2\1.0.864.35\lib\netcoreapp3.0\Microsoft.Web.WebView2.Core.dll
 C:\Users\mrkol\.nuget\packages\microsoft.web.webview2\1.0.864.35\lib\netcoreapp3.0\Microsoft.Web.WebView2.WinForms.dll
 C:\Users\mrkol\.nuget\packages\microsoft.web.webview2\1.0.864.35\lib\netcoreapp3.0\Microsoft.Web.WebView2.Wpf.dll
+C:\Users\mrkol\.nuget\packages\microsoft.xaml.behaviors.wpf\1.1.39\lib\net5.0-windows7.0\Microsoft.Xaml.Behaviors.dll
 C:\Users\mrkol\.nuget\packages\system.identitymodel.tokens.jwt\6.35.0\lib\net6.0\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\mrkol\.nuget\packages\system.memory.data\1.0.2\lib\netstandard2.0\System.Memory.Data.dll
 C:\Users\mrkol\.nuget\packages\system.runtime.caching\6.0.0\lib\net6.0\System.Runtime.Caching.dll

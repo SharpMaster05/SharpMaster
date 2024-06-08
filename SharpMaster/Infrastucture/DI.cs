@@ -38,6 +38,9 @@ internal class DI
         builder.AddScoped<IRepository<Region>, RegionRepository>();
         builder.AddScoped<RegionService>();
 
+        builder.AddTransient<Animation>();
+        builder.AddTransient<Navigation>();
+
         _provider = builder.BuildServiceProvider();
     }
 

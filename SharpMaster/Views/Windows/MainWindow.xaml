@@ -5,19 +5,181 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SharpMaster" 
         xmlns:windows="clr-namespace:SharpMaster.ViewModels.Windows" 
+        xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
         d:DataContext="{d:DesignInstance Type=windows:MainViewModel}"
         mc:Ignorable="d"
         DataContext="{Binding Source={StaticResource DI}, Path=MainViewModel}"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        
-        <DataGrid ItemsSource="{Binding Persons}"/>
-        <DataGrid Grid.Row="1" ItemsSource="{Binding Builds}"/>
-        <DataGrid Grid.Row="2" ItemsSource="{Binding Regions}"/>
-    </Grid>
+        Title="MainWindow" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="{x:Null}">
+    
+    <Border Style="{DynamicResource MainBorder}">
+        <Grid>
+            <Grid Height="30"
+                  VerticalAlignment="Top">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="0.5*"/>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="5"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="8" Grid.Row="1"
+                        Style="{DynamicResource CircleButton}"
+                        Command="{Binding CloseWindowCommand}"
+                        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Border}}">
+                    <md:PackIcon Kind="CloseBold"/>
+                </Button>
+
+                <Button Grid.Column="7" Grid.Row="1"
+                        Style="{DynamicResource CircleButton}"
+                        Command="{Binding MaximizeWindowCommand}"
+                        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}">
+                    <md:PackIcon Kind="Maximize"/>
+                </Button>
+                
+                <Button Grid.Column="6" Grid.Row="1"
+                        Style="{DynamicResource CircleButton}"
+                        Command="{Binding MinimizeWindowCommand}"
+                        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}">
+                    <md:PackIcon Kind="Minimize"/>
+                </Button>
+
+                <Button Style="{DynamicResource CircleButton}"
+                        Grid.Column="4" Grid.Row="1"
+                        Background="{DynamicResource UkraineFlag}">
+                    <TextBlock Text="укр" Margin="0,0,0,3"/>
+                </Button>
+
+                <Button Style="{DynamicResource CircleButton}"
+                        Grid.Column="3" Grid.Row="1">
+                    <TextBlock Text="en" Margin="0 0 0 3"/>
+                </Button>
+                
+                <Button Style="{DynamicResource CircleButton}"
+                        Grid.Column="2" Grid.Row="1">
+                    <TextBlock Text="ру" Margin="0 0 0 3"/>
+                </Button>
+
+                <ToggleButton Style="{DynamicResource ToggleButtonChangeTheme}"
+                              Grid.Column="1"
+                              Grid.Row="1">
+                    
+                </ToggleButton>
+
+                <Menu Grid.Row="1" Style="{DynamicResource MenuStyle}">
+                    <MenuItem Header="File" Style="{DynamicResource  ManuItemStyle}">
+                        
+                    </MenuItem>
+
+                    <MenuItem Header="Selection" Style="{DynamicResource ManuItemStyle}">
+                        
+                    </MenuItem>
+
+                    <MenuItem Header="Action" Style="{DynamicResource ManuItemStyle}">
+                        
+                    </MenuItem>
+                </Menu>
+            </Grid>
+
+            <Border Style="{DynamicResource MenuBorder}"
+                    Name="Menu"
+                    Width="60">
+                <Grid>
+                    <ToggleButton Style="{DynamicResource MenuToggleButton}">
+                        <md:PackIcon Kind="MenuClose" Width="20" Height="20"/>
+                        <ToggleButton.Triggers>
+                            <EventTrigger RoutedEvent="ToggleButton.Checked">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="Menu"
+                                                         Storyboard.TargetProperty="Width"
+                                                         From="60" To="230"
+                                                         Duration="0:0:0.3">
+                                            <DoubleAnimation.EasingFunction>
+                                                <PowerEase Power="2"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            
+                            <EventTrigger RoutedEvent="ToggleButton.Unchecked">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="Menu"
+                                                         Storyboard.TargetProperty="Width"
+                                                         From="230" To="60"
+                                                         Duration="0:0:0.3">
+                                            <DoubleAnimation.EasingFunction>
+                                                <PowerEase Power="2"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </ToggleButton.Triggers>
+                    </ToggleButton>
+
+                    <StackPanel Margin="0,100,0,0">
+                        <Button Style="{DynamicResource MenuButton}"
+                                Command="{Binding NavigateToPersonCommand}">
+                            <Grid Width="200" Height="40">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="30"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <md:PackIcon Kind="Person" Style="{DynamicResource MenuButtonsIcon}"/>
+
+                                <TextBlock Text="PEOPLE" Style="{DynamicResource MenuButtonTextBlock}"/>
+                            </Grid>
+                        </Button>
+                        
+                        <Button Style="{DynamicResource MenuButton}"
+                                Command="{Binding NavigateToBuildCommand}">
+                            <Grid Width="200" Height="40">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="30"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <md:PackIcon Kind="FarmHome" Style="{DynamicResource MenuButtonsIcon}"/>
+
+                                <TextBlock Text="BUILDINGS" Style="{DynamicResource MenuButtonTextBlock}"/>
+                            </Grid>
+                        </Button>
+                        
+                        <Button Style="{DynamicResource MenuButton}">
+                            <Grid Width="200" Height="40">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="30"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <md:PackIcon Kind="Location" Style="{DynamicResource MenuButtonsIcon}"/>
+
+                                <TextBlock Text="REGIONS" Style="{DynamicResource MenuButtonTextBlock}"/>
+                            </Grid>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+            <Frame Margin="60,30,0,0"
+                   Opacity="{Binding Navigation.Frame.Opacity}"
+                   Content="{Binding Navigation.Frame.Content}"
+                   NavigationUIVisibility="Hidden"/>
+        </Grid>
+    </Border>
+
 </Window>

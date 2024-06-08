@@ -1,27 +1,44 @@
 ﻿using BLL.DTO;
 using BLL.Services;
+using SharpMaster.Infrastucture;
 using System.Collections.ObjectModel;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace SharpMaster.ViewModels.Windows;
 
-internal class MainViewModel : BaseViewModel<PersonDTO>
+internal class MainViewModel : Notifier
 {
-    private readonly PersonService _personService;
-    private readonly BuildService _buildService;
-    private readonly RegionService _regionService;
+    private readonly Animation _animation;
+    public Navigation Navigation { get; set; }
 
-    public MainViewModel(PersonService personService, BuildService buildService, RegionService regionService)
+    private Page _personPage;
+    private Page _buildPage;
+
+    public MainViewModel(Animation animation, Navigation navigation)
     {
-        _personService = personService;
-        _buildService = buildService;
-        _regionService = regionService;
+        _animation = animation;
+        Navigation = navigation;
 
-        Persons = new ObservableCollection<PersonDTO>(_personService.GetAll());
-        Builds = new ObservableCollection<BuildDTO>(_buildService.GetAll());
-        Regions = new ObservableCollection<RegionDTO>(_regionService.GetAll());
+        _personPage = new Views.Pages.PersonView();
+        _buildPage = new Views.Pages.BuildView();
     }
+    public ICommand CloseWindowCommand => new Command(x =>
+    {
+        if(x is Border border) _animation.CloseAnimation(border);
+    });
 
-    public ObservableCollection<PersonDTO> Persons { get; set; }
-    public ObservableCollection<BuildDTO> Builds { get; set; }
-    public ObservableCollection<RegionDTO> Regions { get; set; }
+    public ICommand MaximizeWindowCommand => new Command(x =>
+    {
+        if(x is Window window) _animation.MaximizeAnimation(window);
+    });
+
+    public ICommand MinimizeWindowCommand => new Command(x =>
+    {
+        if (x is Window window) _animation.MinimizeAnimation(window);
+    });
+
+    public ICommand NavigateToPersonCommand => new Command(x => Navigation.ChangePage(_personPage));
+    public ICommand NavigateToBuildCommand => new Command(x => Navigation.ChangePage(_buildPage));
 }
