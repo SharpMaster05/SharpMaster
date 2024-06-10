@@ -1,7 +1,4 @@
-﻿using BLL.DTO;
-using BLL.Services;
-using SharpMaster.Infrastucture;
-using System.Collections.ObjectModel;
+﻿using SharpMaster.Infrastucture;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -11,7 +8,9 @@ namespace SharpMaster.ViewModels.Windows;
 internal class MainViewModel : Notifier
 {
     private readonly Animation _animation;
+    private readonly AppResources _appResources;
     public Navigation Navigation { get; set; }
+    public bool IsChecked { get; set; }
 
     private Page _personPage;
     private Page _buildPage;
@@ -23,6 +22,10 @@ internal class MainViewModel : Notifier
 
         _personPage = new Views.Pages.PersonView();
         _buildPage = new Views.Pages.BuildView();
+
+        Navigation.Frame.Content = _personPage;
+
+        _appResources = new AppResources();
     }
     public ICommand CloseWindowCommand => new Command(x =>
     {
@@ -41,4 +44,18 @@ internal class MainViewModel : Notifier
 
     public ICommand NavigateToPersonCommand => new Command(x => Navigation.ChangePage(_personPage));
     public ICommand NavigateToBuildCommand => new Command(x => Navigation.ChangePage(_buildPage));
+
+    public ICommand ChangeThemeCommand => new Command(x => ChangeTheme());
+
+    private void ChangeTheme()
+    {
+        if (!IsChecked)
+        {
+            _appResources.ChangeTheme(_appResources.DarkThemeResources);
+        }
+        else
+        {
+            _appResources.ChangeTheme(_appResources.LightThemeResources);
+        }
+    }
 }

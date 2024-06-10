@@ -10,7 +10,7 @@ public class AppDbContext : DbContext
         
     }
 
-    public DbSet<Person> Persons { get; set; }
+    public DbSet<Person> People { get; set; }
     public DbSet<Build> Builds { get; set; }
     public DbSet<Region> Region { get; set; }
 }

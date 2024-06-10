@@ -8,8 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Styles\Windows\" />
-    <Folder Include="ViewModels\Pages\" />
+    <Folder Include="Styles\DarkStyles\Windows\" />
+    <Folder Include="Styles\LightStyles\Windows\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -30,6 +30,27 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="Styles\DarkStyles\AppStyles.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\DarkStyles\UIElements\BordersStyle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\DarkStyles\UIElements\ButtonsStyle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\DarkStyles\UIElements\DataGridStyle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\DarkStyles\UIElements\TextBlockStyles.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\DarkStyles\UIElements\TextBoxStyles.xaml">
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
 
 </Project>

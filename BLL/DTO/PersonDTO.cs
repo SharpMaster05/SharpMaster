@@ -10,4 +10,5 @@ public class PersonDTO
     public string Description { get; set; }
     public string Resume { get; set; }
     public int? BuildId { get; set; }
+    public string ImagePath {  get; set; }
 }

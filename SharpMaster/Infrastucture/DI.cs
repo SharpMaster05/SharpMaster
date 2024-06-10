@@ -6,6 +6,7 @@ using DAL.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using SharpMaster.ViewModels.Pages;
 using SharpMaster.ViewModels.Windows;
 using System.IO;
 
@@ -27,7 +28,11 @@ internal class DI
         builder.AddDbContext<AppDbContext>(options => options.UseSqlServer(connectionString));
 
         builder.AddAutoMapper(typeof(MappingProfile));
+
         builder.AddTransient<MainViewModel>();
+        builder.AddTransient<PersonViewModel>();
+        builder.AddTransient<BuildViewModel>();
+        builder.AddTransient<RegionViewModel>();
 
         builder.AddScoped<IRepository<Person>, PersonRepository>();
         builder.AddScoped<PersonService>();
@@ -45,4 +50,7 @@ internal class DI
     }
 
     public MainViewModel MainViewModel => _provider.GetRequiredService<MainViewModel>();
+    public PersonViewModel PersonViewModel => _provider.GetRequiredService<PersonViewModel>();
+    public BuildViewModel BuildViewModel => _provider.GetRequiredService<BuildViewModel>();
+    public RegionViewModel RegionViewModel => _provider.GetRequiredService<RegionViewModel>();
 }

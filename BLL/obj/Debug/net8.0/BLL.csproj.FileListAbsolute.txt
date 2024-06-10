@@ -28,3 +28,4 @@ D:\CSharp\WPF\SharpMaster\SharpMaster\BLL\obj\Debug\net8.0\BLL.dll
 D:\CSharp\WPF\SharpMaster\SharpMaster\BLL\obj\Debug\net8.0\refint\BLL.dll
 D:\CSharp\WPF\SharpMaster\SharpMaster\BLL\obj\Debug\net8.0\BLL.pdb
 D:\CSharp\WPF\SharpMaster\SharpMaster\BLL\obj\Debug\net8.0\ref\BLL.dll
+D:\CSharp\WPF\SharpMaster\SharpMaster\BLL\obj\Debug\net8.0\BLL.sourcelink.json

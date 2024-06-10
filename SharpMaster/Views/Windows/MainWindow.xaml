@@ -14,8 +14,8 @@
         WindowStyle="None"
         AllowsTransparency="True"
         Background="{x:Null}">
-    
-    <Border Style="{DynamicResource MainBorder}">
+
+        <Border Style="{DynamicResource MainBorder}">
         <Grid>
             <Grid Height="30"
                   VerticalAlignment="Top">
@@ -73,10 +73,85 @@
                     <TextBlock Text="ру" Margin="0 0 0 3"/>
                 </Button>
 
-                <ToggleButton Style="{DynamicResource ToggleButtonChangeTheme}"
-                              Grid.Column="1"
-                              Grid.Row="1">
-                    
+                <ToggleButton Grid.Column="1"
+                              Grid.Row="1"
+                              IsChecked="{Binding IsChecked}"
+                              Command="{Binding ChangeThemeCommand}">
+                    <ToggleButton.Style>
+                        <Style TargetType="ToggleButton">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="ToggleButton">
+                                        <Grid>
+                                            <Border Background="{DynamicResource BorderBackground}"
+                                                    Width="40"
+                                                    Height="20"
+                                                    CornerRadius="10">
+                                                <ContentPresenter HorizontalAlignment="Center"
+                                                                  VerticalAlignment="Center"/>
+                                            </Border>
+
+                                            <Border x:Name="Toggle"
+                                                    Width="20"
+                                                    Margin="0,0,20,0"
+                                                    Height="20"
+                                                    CornerRadius="10"
+                                                    Background="#00091c"/>
+                                        </Grid>
+
+                                        <ControlTemplate.Triggers>
+                                            <EventTrigger RoutedEvent="Checked">
+                                                <BeginStoryboard>
+                                                    <Storyboard>
+                                                        <ThicknessAnimation Storyboard.TargetName="Toggle"
+                                                                            Storyboard.TargetProperty="Margin"
+                                                                            From="0 0 20 0" To="20 0 0 0"
+                                                                            Duration="0:0:0.3">
+                                                            <ThicknessAnimation.EasingFunction>
+                                                                <SineEase EasingMode="EaseOut"/>
+                                                            </ThicknessAnimation.EasingFunction>
+                                                        </ThicknessAnimation>
+
+                                                        <ColorAnimation Storyboard.TargetName="Toggle"
+                                                                        Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
+                                                                        From="#00091c" To="#fae18c"
+                                                                        Duration="0:0:0.3">
+                                                            <ColorAnimation.EasingFunction>
+                                                                <PowerEase Power="3"/>
+                                                            </ColorAnimation.EasingFunction>
+                                                        </ColorAnimation>
+                                                    </Storyboard>
+                                                </BeginStoryboard>
+                                            </EventTrigger>
+                                            <EventTrigger RoutedEvent="Unchecked">
+                                                <BeginStoryboard>
+                                                    <Storyboard>
+                                                        <ColorAnimation Storyboard.TargetName="Toggle"
+                                                                        Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
+                                                                        From="#fae18c" To="#00091c"
+                                                                        Duration="0:0:0.3">
+                                                                                  <ColorAnimation.EasingFunction>
+                                                                <PowerEase Power="3"/>
+                                                            </ColorAnimation.EasingFunction>
+                                                        </ColorAnimation>
+
+                                                        <ThicknessAnimation Storyboard.TargetName="Toggle"
+                                                                            Storyboard.TargetProperty="Margin"
+                                                                            From="20 0 0 0" To="0 0 20 0"
+                                                                            Duration="0:0:0.3">
+                                                            <ThicknessAnimation.EasingFunction>
+                                                                <SineEase EasingMode="EaseOut"/>
+                                                            </ThicknessAnimation.EasingFunction>
+                                                        </ThicknessAnimation>
+                                                    </Storyboard>
+                                                </BeginStoryboard>
+                                            </EventTrigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </ToggleButton.Style>
                 </ToggleButton>
 
                 <Menu Grid.Row="1" Style="{DynamicResource MenuStyle}">
@@ -96,7 +171,8 @@
 
             <Border Style="{DynamicResource MenuBorder}"
                     Name="Menu"
-                    Width="60">
+                    Width="60"
+                    Panel.ZIndex="1">
                 <Grid>
                     <ToggleButton Style="{DynamicResource MenuToggleButton}">
                         <md:PackIcon Kind="MenuClose" Width="20" Height="20"/>
@@ -112,6 +188,15 @@
                                                 <PowerEase Power="2"/>
                                             </DoubleAnimation.EasingFunction>
                                         </DoubleAnimation>
+                                        <ThicknessAnimation Storyboard.TargetName="Frame"
+                                                            Storyboard.TargetProperty="Margin"
+                                                            Duration="0:0:0.3"
+                                                            From="60,30,0,0"
+                                                            To="260,30,0,0">
+                                            <ThicknessAnimation.EasingFunction>
+                                                <PowerEase Power="2" EasingMode="EaseInOut"/>
+                                            </ThicknessAnimation.EasingFunction>
+                                        </ThicknessAnimation>
                                     </Storyboard>
                                 </BeginStoryboard>
                             </EventTrigger>
@@ -127,6 +212,15 @@
                                                 <PowerEase Power="2"/>
                                             </DoubleAnimation.EasingFunction>
                                         </DoubleAnimation>
+                                        <ThicknessAnimation Storyboard.TargetName="Frame"
+                                                            Storyboard.TargetProperty="Margin"
+                                                            Duration="0:0:0.3"
+                                                            From="260,30,0,0"
+                                                            To="60,30,0,0">
+                                            <ThicknessAnimation.EasingFunction>
+                                                <PowerEase Power="2" EasingMode="EaseInOut"/>
+                                            </ThicknessAnimation.EasingFunction>
+                                        </ThicknessAnimation>
                                     </Storyboard>
                                 </BeginStoryboard>
                             </EventTrigger>
@@ -176,6 +270,7 @@
             </Border>
 
             <Frame Margin="60,30,0,0"
+                   Name="Frame"
                    Opacity="{Binding Navigation.Frame.Opacity}"
                    Content="{Binding Navigation.Frame.Content}"
                    NavigationUIVisibility="Hidden"/>

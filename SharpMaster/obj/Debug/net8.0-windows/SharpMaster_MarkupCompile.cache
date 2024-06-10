@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 D:\CSharp\WPF\SharpMaster\SharpMaster\SharpMaster\App.xaml
-7612119692
+16206850829
 
-14-1842223010
+19-1892600980
 2511629865366
-Styles\AppStyles.xaml;Styles\UIElements\BordersStyle.xaml;Styles\UIElements\ButtonsStyle.xaml;Styles\UIElements\TextBlockStyles.xaml;Views\Pages\BuildView.xaml;Views\Pages\PersonView.xaml;Views\Windows\MainWindow.xaml;
+Styles\DarkStyles\AppStyles.xaml;Styles\DarkStyles\UIElements\BordersStyle.xaml;Styles\DarkStyles\UIElements\ButtonsStyle.xaml;Styles\DarkStyles\UIElements\DataGridStyle.xaml;Styles\DarkStyles\UIElements\TextBlockStyles.xaml;Styles\DarkStyles\UIElements\TextBoxStyles.xaml;Styles\LightStyles\AppStyles.xaml;Styles\LightStyles\UIElements\BordersStyle.xaml;Styles\LightStyles\UIElements\ButtonsStyle.xaml;Styles\LightStyles\UIElements\DataGridStyle.xaml;Styles\LightStyles\UIElements\TextBlockStyles.xaml;Styles\LightStyles\UIElements\TextBoxStyles.xaml;Views\Pages\BuildView.xaml;Views\Pages\PersonView.xaml;Views\Pages\RegionView.xaml;Views\Windows\MainWindow.xaml;
 
 False
 

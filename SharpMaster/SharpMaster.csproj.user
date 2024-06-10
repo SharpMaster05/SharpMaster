@@ -13,24 +13,39 @@
     <Compile Update="Views\Pages\PersonView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\Pages\RegionView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="Styles\AppStyles.xaml">
+    <Page Update="Styles\DarkStyles\AppStyles.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Styles\UIElements\BordersStyle.xaml">
+    <Page Update="Styles\LightStyles\AppStyles.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Styles\UIElements\ButtonsStyle.xaml">
+    <Page Update="Styles\LightStyles\UIElements\BordersStyle.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Styles\UIElements\TextBlockStyles.xaml">
+    <Page Update="Styles\LightStyles\UIElements\ButtonsStyle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\LightStyles\UIElements\DataGridStyle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\LightStyles\UIElements\TextBlockStyles.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\LightStyles\UIElements\TextBoxStyles.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Pages\BuildView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Pages\PersonView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Pages\RegionView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Windows\MainWindow.xaml">
