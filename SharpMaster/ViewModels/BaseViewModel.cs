@@ -10,6 +10,7 @@ internal class BaseViewModel<T> : Notifier where T : class, new()
     private readonly IService<T> _service;
 
     public ObservableCollection<T> Items { get; set; }
+    public T SelectedItem { get; set; }
 
     public BaseViewModel(IService<T> service)
     {
@@ -20,4 +21,5 @@ internal class BaseViewModel<T> : Notifier where T : class, new()
     {
         _service.Add(item);
     }
+
 }

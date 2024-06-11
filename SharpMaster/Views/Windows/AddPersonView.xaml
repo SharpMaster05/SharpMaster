@@ -1,0 +1,161 @@
+﻿<Window x:Class="SharpMaster.Views.Windows.AddPersonView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SharpMaster.ViewModels.Windows"
+        xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        d:DataContext="{d:DesignInstance Type=local:AddPersonViewModel}"
+        DataContext="{Binding Source={StaticResource DI}, Path=AddPersonViewModel}"
+        Title="AddPersonView" 
+        Height="500" 
+        WindowStartupLocation="CenterScreen"
+        Background="{x:Null}"
+        AllowsTransparency="True"
+        WindowStyle="None"
+        Width="800">
+
+    <Border Style="{DynamicResource MainBorder}"
+            MouseLeftButtonDown="Border_MouseLeftButtonDown">
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="1.3*"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <Grid Height="30" VerticalAlignment="Top">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="5"/>
+                </Grid.ColumnDefinitions>
+
+
+                <Button Grid.Column="2" Grid.Row="1"
+                        Style="{DynamicResource CircleButton}"
+                        Command="{Binding CloseWindowCommand}"
+                        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Border}}">
+                    <md:PackIcon Kind="CloseBold"/>
+                </Button>
+
+                <Button Grid.Column="1" Grid.Row="1"
+                        Style="{DynamicResource CircleButton}"
+                        Command="{Binding MinimizeWindowCommand}"
+                        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}">
+                    <md:PackIcon Kind="Minimize"/>
+                </Button>
+            </Grid>
+
+            <Grid MinHeight="250" 
+                  VerticalAlignment="Top" Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="55"/>
+                    <RowDefinition Height="55"/>
+                    <RowDefinition Height="55"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="1.5*"/>
+                    <ColumnDefinition Width="1.5*"/>
+                </Grid.ColumnDefinitions>
+
+                <Border Style="{DynamicResource ImageBorder}">
+                    <Border.Background>
+                        <ImageBrush ImageSource="{Binding PersonImage.Source}"
+                                    Stretch="UniformToFill"/>
+                    </Border.Background>
+                </Border>
+
+                <Button Grid.Row="3" 
+                        Style="{DynamicResource CircleButton}"
+                        Command="{Binding SelectImageCommand}">
+                    <md:PackIcon Kind="Image"/>
+                </Button>
+                
+                <TextBlock Text="Add new person" 
+                           Style="{DynamicResource Header}" 
+                           Grid.ColumnSpan="3"
+                           Grid.Column="0"/>
+
+                <Border Style="{DynamicResource TextBoxBorder}"
+                        Grid.Row="1" Grid.Column="1"
+                        Margin="5 0">
+                    <TextBox Tag="Name" Text="{Binding Person.Name}"/>
+                </Border>
+                
+                <Border Style="{DynamicResource TextBoxBorder}"
+                        Grid.Row="1" Grid.Column="2"
+                        Margin="5,0">
+                    <TextBox Tag="Lastname" Text="{Binding Person.Lastname}"/>
+                </Border>
+                
+                <Border Style="{DynamicResource TextBoxBorder}"
+                        Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"
+                        Margin="120 0" >
+                    <TextBox Tag="Email" Text="{Binding Person.Email}"/>
+                </Border>
+
+
+                <Border Style="{DynamicResource TextBoxBorder}"
+                        Grid.Row="3" Grid.Column="1"
+                        Margin="5 0">
+                    <TextBox Tag="Phone number" Text="{Binding Person.PhoneNumber}"/>
+                </Border>
+                
+                <ComboBox Grid.Row="3" Grid.Column="2"
+                          Style="{DynamicResource ComboBoxStyle}"
+                          ItemsSource="{Binding BuildsName}"
+                          SelectedItem="{Binding SelectedBuildName}"
+                          Margin="5,0" Height="40"/>
+                
+            </Grid>
+
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Border Style="{DynamicResource TextBoxBorder}"
+                        Height="150" 
+                        Margin="5 0">
+                    <TextBox Tag="Description"
+                             TextWrapping="Wrap"
+                             MaxHeight="150"
+                             Text="{Binding Person.Description}"/>
+                </Border>
+                
+                <Border Style="{DynamicResource TextBoxBorder}"
+                        Height="150" 
+                        Grid.Column="1"
+                        Margin="5 0">
+                    <TextBox Tag="Resume"
+                             MaxHeight="150"
+                             Text="{Binding Person.Resume}"
+                             TextWrapping="Wrap"/>
+                </Border>
+            </Grid>
+
+            <StackPanel Orientation="Horizontal"
+                        FlowDirection="RightToLeft"
+                        Grid.Row="3">
+                <Button Style="{DynamicResource AddButton}"
+                        Command="{Binding AddPersonCommand}"
+                        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Border}}"
+                        Margin="20,0">
+                    <md:PackIcon Kind="CheckBold"/>
+                </Button>
+                <Button Style="{DynamicResource DeleteButton}"
+                        Command="{Binding CloseWindowCommand}"
+                        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Border}}">
+                    <md:PackIcon Kind="Cancel"/>
+                </Button>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>

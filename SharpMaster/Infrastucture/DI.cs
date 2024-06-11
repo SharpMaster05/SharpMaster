@@ -1,4 +1,5 @@
-﻿using BLL.Services;
+﻿using BLL.DTO;
+using BLL.Services;
 using DAL.Abstractions;
 using DAL.Context;
 using DAL.Models;
@@ -33,6 +34,7 @@ internal class DI
         builder.AddTransient<PersonViewModel>();
         builder.AddTransient<BuildViewModel>();
         builder.AddTransient<RegionViewModel>();
+        builder.AddTransient<AddPersonViewModel>();
 
         builder.AddScoped<IRepository<Person>, PersonRepository>();
         builder.AddScoped<PersonService>();
@@ -53,4 +55,5 @@ internal class DI
     public PersonViewModel PersonViewModel => _provider.GetRequiredService<PersonViewModel>();
     public BuildViewModel BuildViewModel => _provider.GetRequiredService<BuildViewModel>();
     public RegionViewModel RegionViewModel => _provider.GetRequiredService<RegionViewModel>();
+    public AddPersonViewModel AddPersonViewModel => _provider.GetRequiredService<AddPersonViewModel>();
 }

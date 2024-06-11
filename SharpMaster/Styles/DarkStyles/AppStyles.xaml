@@ -7,6 +7,7 @@
     <SolidColorBrush x:Key="Green" Color="#36cc7a"/>
     <SolidColorBrush x:Key="Yellow" Color="#ffb600"/>
     <SolidColorBrush x:Key="Red" Color="#ff3b3b"/>
+    <SolidColorBrush x:Key="Blue" Color="#0080ff"/>
 
     <LinearGradientBrush x:Key="UkraineFlag" StartPoint="0 0" EndPoint="0 1">
         <GradientStop Color="#0080ff" Offset="0.5"/>

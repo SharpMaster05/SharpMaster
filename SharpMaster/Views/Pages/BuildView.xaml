@@ -34,8 +34,7 @@
             </Grid.ColumnDefinitions>
 
             <Border Grid.Column="1" Style="{DynamicResource TextBoxBorder}">
-                <TextBox Style="{DynamicResource SearchBox}"
-                     Tag="search"/>
+                <TextBox Tag="search"/>
             </Border>
 
             <ComboBox Grid.Column="3" Style="{DynamicResource ComboBoxStyle}">

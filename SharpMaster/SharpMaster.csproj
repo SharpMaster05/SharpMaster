@@ -8,8 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Styles\DarkStyles\Windows\" />
-    <Folder Include="Styles\LightStyles\Windows\" />
+    <Folder Include="Properties\" />
   </ItemGroup>
 
   <ItemGroup>

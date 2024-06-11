@@ -192,9 +192,9 @@
                                                             Storyboard.TargetProperty="Margin"
                                                             Duration="0:0:0.3"
                                                             From="60,30,0,0"
-                                                            To="260,30,0,0">
+                                                            To="230,30,0,0">
                                             <ThicknessAnimation.EasingFunction>
-                                                <PowerEase Power="2" EasingMode="EaseInOut"/>
+                                                <PowerEase Power="3" EasingMode="EaseInOut"/>
                                             </ThicknessAnimation.EasingFunction>
                                         </ThicknessAnimation>
                                     </Storyboard>
@@ -215,10 +215,10 @@
                                         <ThicknessAnimation Storyboard.TargetName="Frame"
                                                             Storyboard.TargetProperty="Margin"
                                                             Duration="0:0:0.3"
-                                                            From="260,30,0,0"
+                                                            From="230,30,0,0"
                                                             To="60,30,0,0">
                                             <ThicknessAnimation.EasingFunction>
-                                                <PowerEase Power="2" EasingMode="EaseInOut"/>
+                                                <PowerEase Power="3" EasingMode="EaseInOut"/>
                                             </ThicknessAnimation.EasingFunction>
                                         </ThicknessAnimation>
                                     </Storyboard>
@@ -228,9 +228,9 @@
                     </ToggleButton>
 
                     <StackPanel Margin="0,100,0,0">
-                        <Button Style="{DynamicResource MenuButton}"
-                                Command="{Binding NavigateToPersonCommand}">
-                            <Grid Width="200" Height="40">
+                        <RadioButton Style="{DynamicResource MenuButton}"
+                                     Command="{Binding NavigateToPersonCommand}">
+                            <Grid Height="40">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="30"/>
                                     <ColumnDefinition/>
@@ -239,11 +239,11 @@
 
                                 <TextBlock Text="PEOPLE" Style="{DynamicResource MenuButtonTextBlock}"/>
                             </Grid>
-                        </Button>
+                        </RadioButton>
                         
-                        <Button Style="{DynamicResource MenuButton}"
-                                Command="{Binding NavigateToBuildCommand}">
-                            <Grid Width="200" Height="40">
+                        <RadioButton Style="{DynamicResource MenuButton}"
+                                     Command="{Binding NavigateToBuildCommand}">
+                            <Grid Height="40">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="30"/>
                                     <ColumnDefinition/>
@@ -252,10 +252,10 @@
 
                                 <TextBlock Text="BUILDINGS" Style="{DynamicResource MenuButtonTextBlock}"/>
                             </Grid>
-                        </Button>
+                        </RadioButton>
                         
-                        <Button Style="{DynamicResource MenuButton}">
-                            <Grid Width="200" Height="40">
+                        <RadioButton Style="{DynamicResource MenuButton}">
+                            <Grid Height="40">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="30"/>
                                     <ColumnDefinition/>
@@ -264,7 +264,7 @@
 
                                 <TextBlock Text="REGIONS" Style="{DynamicResource MenuButtonTextBlock}"/>
                             </Grid>
-                        </Button>
+                        </RadioButton>
                     </StackPanel>
                 </Grid>
             </Border>

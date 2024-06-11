@@ -14,19 +14,19 @@ public class GenericRepository<T> : IRepository<T> where T : class, new()
     public void Add(T entity)
     {
         _appDbContext.Set<T>().Add(entity);
-        _appDbContext.SaveChangesAsync();
+        _appDbContext.SaveChanges();
     }
 
     public void Delete(T entity)
     {
         _appDbContext.Set<T>().Remove(entity);
-        _appDbContext.SaveChangesAsync();
+        _appDbContext.SaveChanges();
     }
 
     public void Update(T entity)
     {
         _appDbContext.Set<T>().Entry(entity).State = EntityState.Modified;
-        _appDbContext.SaveChangesAsync();
+        _appDbContext.SaveChanges();
     }
 
     public IEnumerable<T> GetAll() => _appDbContext.Set<T>().ToList();

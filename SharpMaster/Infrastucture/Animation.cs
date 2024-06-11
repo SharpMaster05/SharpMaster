@@ -6,7 +6,7 @@ namespace SharpMaster.Infrastucture;
 
 internal class Animation
 {
-    public void CloseAnimation(Border border)
+    public void CloseAnimation(Border border, string windowTitle)
     {
         var width = (int)App.Current.MainWindow.Width;
         var time = TimeSpan.FromSeconds(0.7);
@@ -16,7 +16,14 @@ internal class Animation
             EasingFunction = new PowerEase() { EasingMode = EasingMode.EaseInOut, Power = 5 }
         };
 
-        animation.Completed += (obj, e) => App.Current.Shutdown();
+        animation.Completed += (obj, e) => 
+        {
+            foreach (Window i in App.Current.Windows)
+            {
+                if(i.Title == windowTitle)
+                    i.Close();
+            }
+        };
 
         border.BeginAnimation(FrameworkElement.WidthProperty , animation);
     }
@@ -46,7 +53,6 @@ internal class Animation
         animation.Completed += (s, e) =>
         {
             window.WindowState = WindowState.Minimized;
-
             DoubleAnimation showAnimation = new DoubleAnimation(0, 1, time);
             window.BeginAnimation(UIElement.OpacityProperty, showAnimation);
         };

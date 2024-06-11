@@ -15,7 +15,7 @@ internal class AppResources
 
     public void ChangeTheme(List<Uri> themeResources)
     {
-        Application.Current.Resources.Clear();
+       
 
         foreach(var i in themeResources)
         {

@@ -23,13 +23,24 @@ public class GenericService<DTO, Entity> : IService<DTO> where DTO : class, new(
     public void Delete(DTO service)
     {
         var entity = _mapper.Map<Entity>(service);
-        _repository.Delete(entity);
+        var existingEntity = _repository.GetById(GetKey(entity));
+        
+        if (existingEntity != null)
+        {
+            _repository.Delete(existingEntity);
+        }
     }
 
     public void Update(DTO service)
     {
         var entity = _mapper.Map<Entity>(service);
-        _repository.Update(entity);
+        var existingEntity = _repository.GetById(GetKey(entity));
+
+        if (existingEntity != null)
+        {
+            _mapper.Map(service, existingEntity);
+            _repository.Update(existingEntity);
+        }
     }
 
     public IEnumerable<DTO> GetAll()
@@ -42,5 +53,15 @@ public class GenericService<DTO, Entity> : IService<DTO> where DTO : class, new(
     {
         var entity = _repository.GetById(id);
         return _mapper.Map<DTO>(entity);
+    }
+
+    private int GetKey(Entity entity)
+    {
+        var propertyInfo = entity.GetType().GetProperty("PersonId");
+        if (propertyInfo != null)
+        {
+            return (int)propertyInfo.GetValue(entity);
+        }
+        throw new ArgumentException("Entity does not have an Id property");
     }
 }

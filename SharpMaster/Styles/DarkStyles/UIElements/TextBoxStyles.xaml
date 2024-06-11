@@ -2,7 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
 
-    <Style x:Key="SearchBox" TargetType="TextBox">
+    <Style TargetType="TextBox">
         <Setter Property="MaxHeight" Value="40"/>
         <Setter Property="Background" Value="{x:Null}"/>
         <Setter Property="BorderThickness" Value="0"/>
@@ -28,7 +28,7 @@
                                        FontSize="14"
                                        Opacity="0.5"
                                        Margin="1,0,0,0"
-                                       Foreground="Gray"
+                                       Foreground="{DynamicResource ForegroundGradient}"
                                        VerticalAlignment="Center"
                                        Visibility="Collapsed"/>
                         </Grid>

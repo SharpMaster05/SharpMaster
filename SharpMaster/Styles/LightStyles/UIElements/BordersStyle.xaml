@@ -29,5 +29,16 @@
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="Padding" Value="10,0"/>
     </Style>
-    
+
+    <Style TargetType="Border" x:Key="ImageBorder">
+        <Setter Property="BorderBrush" Value="{DynamicResource ForegroundGradient}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="Width" Value="120"/>
+        <Setter Property="Height" Value="120"/>
+        <Setter Property="CornerRadius" Value="60"/>
+        <Setter Property="Grid.RowSpan" Value="3"/>
+        <Setter Property="Grid.Row" Value="1"/>
+    </Style>
+
 </ResourceDictionary>

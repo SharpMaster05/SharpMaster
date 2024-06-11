@@ -29,7 +29,7 @@ internal class MainViewModel : Notifier
     }
     public ICommand CloseWindowCommand => new Command(x =>
     {
-        if(x is Border border) _animation.CloseAnimation(border);
+        if(x is Border border) _animation.CloseAnimation(border, "MainWindow");
     });
 
     public ICommand MaximizeWindowCommand => new Command(x =>
@@ -45,17 +45,11 @@ internal class MainViewModel : Notifier
     public ICommand NavigateToPersonCommand => new Command(x => Navigation.ChangePage(_personPage));
     public ICommand NavigateToBuildCommand => new Command(x => Navigation.ChangePage(_buildPage));
 
-    public ICommand ChangeThemeCommand => new Command(x => ChangeTheme());
-
-    private void ChangeTheme()
+    public ICommand ChangeThemeCommand => new Command(x => 
     {
         if (!IsChecked)
-        {
             _appResources.ChangeTheme(_appResources.DarkThemeResources);
-        }
         else
-        {
             _appResources.ChangeTheme(_appResources.LightThemeResources);
-        }
-    }
+    });
 }
