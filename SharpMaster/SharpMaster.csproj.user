@@ -19,6 +19,9 @@
     <Compile Update="Views\Windows\AddPersonView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\Windows\EditPersonView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Styles\DarkStyles\AppStyles.xaml">
@@ -52,6 +55,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Windows\AddPersonView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Windows\EditPersonView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Windows\MainWindow.xaml">

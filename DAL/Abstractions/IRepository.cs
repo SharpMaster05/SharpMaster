@@ -2,9 +2,9 @@
 
 public interface IRepository<T> where T : class, new()
 {
-    void Add(T entity);
-    void Delete(T entity);
-    void Update(T entity);
-    T GetById(int id);
-    IEnumerable<T> GetAll();
+    Task AddAsync(T entity);
+    Task DeleteAsync(T entity);
+    Task UpdateAsync(T entity);
+    Task<T> GetByIdAsync(int id);
+    Task<IEnumerable<T>> GetAllAsync();
 }

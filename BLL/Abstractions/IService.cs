@@ -2,9 +2,9 @@
 
 public interface IService<T> where T : class, new()
 {
-    void Add(T service);
-    void Delete(T service);
-    void Update(T service);
-    T GetById(int id);
-    IEnumerable<T> GetAll();
+    Task AddAsync(T service);
+    Task DeleteAsync(T service);
+    Task UpdateAsync(T service);
+    Task<T> GetByIdAsync(int id);
+    Task<IEnumerable<T>> GetAllAsync();
 }

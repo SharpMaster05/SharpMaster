@@ -8,7 +8,7 @@ internal class Animation
 {
     public void CloseAnimation(Border border, string windowTitle)
     {
-        var width = (int)App.Current.MainWindow.Width;
+        var width = (int)border.ActualWidth;
         var time = TimeSpan.FromSeconds(0.7);
 
         DoubleAnimation animation = new(width, 0, time)

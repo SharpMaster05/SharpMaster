@@ -13,6 +13,8 @@
       Title="PersonView">
 
     <Grid MaxWidth="1000" Margin="10,0,60,0">
+        
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
             <RowDefinition  MaxHeight="40"/>
@@ -124,7 +126,7 @@
                     </RadioButton>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
-            
         </ItemsControl>
+        
     </Grid>
 </Page>

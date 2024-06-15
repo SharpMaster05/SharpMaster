@@ -190,3 +190,5 @@ D:\CSharp\WPF\SharpMaster\SharpMaster\SharpMaster\obj\Debug\net8.0-windows\Style
 D:\CSharp\WPF\SharpMaster\SharpMaster\SharpMaster\obj\Debug\net8.0-windows\Styles\LightStyles\UIElements\TextBoxStyles.baml
 D:\CSharp\WPF\SharpMaster\SharpMaster\SharpMaster\obj\Debug\net8.0-windows\Views\Windows\AddPersonView.g.cs
 D:\CSharp\WPF\SharpMaster\SharpMaster\SharpMaster\obj\Debug\net8.0-windows\Views\Windows\AddPersonView.baml
+D:\CSharp\WPF\SharpMaster\SharpMaster\SharpMaster\obj\Debug\net8.0-windows\Views\Windows\EditPersonView.g.cs
+D:\CSharp\WPF\SharpMaster\SharpMaster\SharpMaster\obj\Debug\net8.0-windows\Views\Windows\EditPersonView.baml

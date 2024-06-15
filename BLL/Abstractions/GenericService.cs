@@ -14,44 +14,44 @@ public class GenericService<DTO, Entity> : IService<DTO> where DTO : class, new(
         _mapper = mapper;
     }
 
-    public void Add(DTO service)
+    public async Task AddAsync(DTO service)
     {
         var entity = _mapper.Map<Entity>(service);
-        _repository.Add(entity);
+        await _repository.AddAsync(entity);
     }
 
-    public void Delete(DTO service)
+    public async Task DeleteAsync(DTO service)
     {
         var entity = _mapper.Map<Entity>(service);
-        var existingEntity = _repository.GetById(GetKey(entity));
+        var existingEntity =  await _repository.GetByIdAsync(GetKey(entity));
         
         if (existingEntity != null)
         {
-            _repository.Delete(existingEntity);
+            await _repository.DeleteAsync(existingEntity);
         }
     }
 
-    public void Update(DTO service)
+    public async Task UpdateAsync(DTO service)
     {
         var entity = _mapper.Map<Entity>(service);
-        var existingEntity = _repository.GetById(GetKey(entity));
+        var existingEntity = await _repository.GetByIdAsync(GetKey(entity));
 
         if (existingEntity != null)
         {
             _mapper.Map(service, existingEntity);
-            _repository.Update(existingEntity);
+            await _repository.UpdateAsync(existingEntity);
         }
     }
 
-    public IEnumerable<DTO> GetAll()
+    public async Task<IEnumerable<DTO>> GetAllAsync()
     {
-        var entities = _repository.GetAll();
+        var entities = await _repository.GetAllAsync();
         return entities.Select(e => _mapper.Map<DTO>(e));
     }
 
-    public DTO GetById(int id)
+    public async Task<DTO> GetByIdAsync(int id)
     {
-        var entity = _repository.GetById(id);
+        var entity = await _repository.GetByIdAsync(id);
         return _mapper.Map<DTO>(entity);
     }
 

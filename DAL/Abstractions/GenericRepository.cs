@@ -11,25 +11,25 @@ public class GenericRepository<T> : IRepository<T> where T : class, new()
         _appDbContext = appDbContext;
     }
 
-    public void Add(T entity)
+    public async Task AddAsync(T entity)
     {
-        _appDbContext.Set<T>().Add(entity);
-        _appDbContext.SaveChanges();
+        await _appDbContext.Set<T>().AddAsync(entity);
+        await _appDbContext.SaveChangesAsync();
     }
 
-    public void Delete(T entity)
+    public async Task DeleteAsync(T entity)
     {
         _appDbContext.Set<T>().Remove(entity);
-        _appDbContext.SaveChanges();
+        await _appDbContext.SaveChangesAsync();
     }
 
-    public void Update(T entity)
+    public async Task UpdateAsync(T entity)
     {
         _appDbContext.Set<T>().Entry(entity).State = EntityState.Modified;
-        _appDbContext.SaveChanges();
+        await _appDbContext.SaveChangesAsync();
     }
 
-    public IEnumerable<T> GetAll() => _appDbContext.Set<T>().ToList();
+    public async Task<IEnumerable<T>> GetAllAsync() => await _appDbContext.Set<T>().ToListAsync();
 
-    public T GetById(int id) => _appDbContext.Set<T>().Find(id);
+    public async Task<T> GetByIdAsync(int id) => await _appDbContext.Set<T>().FindAsync(id);
 }

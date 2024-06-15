@@ -10,28 +10,40 @@ namespace SharpMaster.ViewModels.Pages;
 internal class PersonViewModel : BaseViewModel<PersonDTO>
 {
     private readonly PersonService _personService;
-    public PersonViewModel(PersonService personService) : base(personService)
+    private readonly BuildService _buildService;
+    public PersonViewModel(PersonService personService, BuildService buildService)
     {
         _personService = personService;
+        _buildService = buildService;
 
-        Items = new(_personService.GetAll());
+        InitializeAsync(_personService);
     }
 
-    public ICommand SelectedItemCommand => new Command(x => { if (x is PersonDTO person) SelectedItem = person; });
+    public ICommand SelectedItemCommand => new Command(x => SelectedItem = x as PersonDTO);
+    
     public ICommand EditPersonCommand => new Command(x =>
     {
-        if (SelectedItem != null)
-        {
-            System.Windows.Forms.MessageBox.Show("Test");
-        }
+        EditPersonView view = new EditPersonView();
+        EditPersonViewModel editPersonViewModel = new EditPersonViewModel(_personService, _buildService, SelectedItem);
+        view.DataContext = editPersonViewModel;
+        view.ShowDialog();
     }, x => SelectedItem != null);
 
-    public ICommand ReloadCommand => new Command(x => Items = new(_personService.GetAll()));
-    public ICommand DeleteCommand => new Command(x =>
+    public ICommand ReloadCommand => new Command(async x =>
     {
-            _personService.Delete(SelectedItem);
-            Items = new(_personService.GetAll());
-    }, x => SelectedItem != null);
+        var items = await _personService.GetAllAsync();
+        Items = new(items);
+    });
+    
+    public ICommand DeleteCommand => new Command(async x =>
+    {
+        await _personService.DeleteAsync(SelectedItem);
+        var items = await _personService.GetAllAsync();
+        Items = new(items);
+        SelectedItem = null;
+    },
+    x => SelectedItem != null);
+
     public ICommand AddNewPersonCommand => new Command(x => 
     {
         AddPersonView view = new();

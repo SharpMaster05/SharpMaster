@@ -7,10 +7,10 @@ namespace SharpMaster.ViewModels.Pages;
 internal class RegionViewModel : BaseViewModel<RegionDTO>
 {
     private readonly RegionService _regionService;
-    public RegionViewModel(RegionService regionService) : base(regionService)
+    public RegionViewModel(RegionService regionService)
     {
         _regionService = regionService;
 
-        Items = new(_regionService.GetAll());
+        InitializeAsync(_regionService);
     }
 }

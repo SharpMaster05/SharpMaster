@@ -19,23 +19,29 @@ internal class AddPersonViewModel : BaseViewModel<PersonDTO>
     public Image PersonImage { get; set; }
     public List<string> BuildsName { get; set; }
     public string SelectedBuildName { get; set; }
-    public AddPersonViewModel(PersonService service, Animation animation, BuildService buildService) : base(service)
+    public AddPersonViewModel(PersonService service, Animation animation, BuildService buildService)
     {
         _service = service;
         _animation = animation;
         _buildService = buildService;
 
         Person = new PersonDTO();
-        BuildsName = new List<string>(_buildService.GetAll().Select(x => x.Title));
+        
+        InitializeBuildings();
+    }
+    private async void InitializeBuildings()
+    {
+        var builds = await _buildService.GetAllAsync();
+        BuildsName = new List<string>(builds.Select(x => x.Title));
     }
 
-    public ICommand AddPersonCommand => new Command(x =>
+    public ICommand AddPersonCommand => new Command(async x =>
     {
         if (x is Border border)
         {
-            int buildId = _buildService.GetAll().FirstOrDefault(b => b.Title == SelectedBuildName).BuildId;
+            var buildId = (await _buildService.GetAllAsync()).FirstOrDefault(x => x.Title == SelectedBuildName).BuildId;
 
-            _service.Add(new PersonDTO
+            await _service.AddAsync(new PersonDTO
             {
                 Name = Person.Name,
                 Lastname = Person.Lastname,
@@ -49,7 +55,10 @@ internal class AddPersonViewModel : BaseViewModel<PersonDTO>
 
             CloseWindowCommand.Execute(border);
         }
-    });
+    }, x => !string.IsNullOrEmpty(Person.Name) &&
+            !string.IsNullOrEmpty(Person.Lastname) &&
+            !string.IsNullOrEmpty(Person.Email) &&
+            !string.IsNullOrEmpty(Person.PhoneNumber));
 
     public ICommand CloseWindowCommand => new Command(x =>
     {
