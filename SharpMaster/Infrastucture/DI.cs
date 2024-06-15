@@ -33,8 +33,7 @@ internal class DI
         builder.AddTransient<PersonViewModel>();
         builder.AddTransient<BuildViewModel>();
         builder.AddTransient<RegionViewModel>();
-        builder.AddTransient<AddPersonViewModel>();
-        builder.AddTransient<EditPersonViewModel>();
+        builder.AddTransient<AddOrUpdateViewModel>();
 
         builder.AddScoped<IRepository<Person>, PersonRepository>();
         builder.AddScoped<PersonService>();
@@ -55,6 +54,5 @@ internal class DI
     public PersonViewModel PersonViewModel => _provider.GetRequiredService<PersonViewModel>();
     public BuildViewModel BuildViewModel => _provider.GetRequiredService<BuildViewModel>();
     public RegionViewModel RegionViewModel => _provider.GetRequiredService<RegionViewModel>();
-    public AddPersonViewModel AddPersonViewModel => _provider.GetRequiredService<AddPersonViewModel>();
-    public EditPersonViewModel EditPersonViewModel => _provider.GetRequiredService<EditPersonViewModel>();
+    public AddOrUpdateViewModel AddOrUpdateViewModel => _provider.GetRequiredService<AddOrUpdateViewModel>();
 }

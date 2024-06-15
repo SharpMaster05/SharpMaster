@@ -23,8 +23,8 @@ internal class PersonViewModel : BaseViewModel<PersonDTO>
     
     public ICommand EditPersonCommand => new Command(x =>
     {
-        EditPersonView view = new EditPersonView();
-        EditPersonViewModel editPersonViewModel = new EditPersonViewModel(_personService, _buildService, SelectedItem);
+        AddOrUpdateView view = new AddOrUpdateView();
+        AddOrUpdateViewModel editPersonViewModel = new AddOrUpdateViewModel(_personService, _buildService, SelectedItem, true);
         view.DataContext = editPersonViewModel;
         view.ShowDialog();
     }, x => SelectedItem != null);
@@ -46,7 +46,7 @@ internal class PersonViewModel : BaseViewModel<PersonDTO>
 
     public ICommand AddNewPersonCommand => new Command(x => 
     {
-        AddPersonView view = new();
+        AddOrUpdateView view = new AddOrUpdateView();
         view.ShowDialog();
     });
 }
