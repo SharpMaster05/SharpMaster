@@ -1,5 +1,6 @@
 ﻿using BLL.DTO;
 using BLL.Services;
+using DAL.Models;
 using SharpMaster.Infrastucture;
 using SharpMaster.ViewModels.Windows;
 using SharpMaster.Views.Windows;
@@ -18,6 +19,9 @@ internal class PersonViewModel : BaseViewModel<PersonDTO>
 
         InitializeAsync(_personService);
     }
+
+    public string SearchingText { get; set; }
+    public string SelectedSearchProperty { get; set; }
 
     public ICommand SelectedItemCommand => new Command(x => SelectedItem = x as PersonDTO);
     
@@ -48,5 +52,19 @@ internal class PersonViewModel : BaseViewModel<PersonDTO>
     {
         AddOrUpdateView view = new AddOrUpdateView();
         view.ShowDialog();
+    });
+
+
+    public ICommand SearchCommand => new Command(async x =>
+    {
+        var searchProperty = typeof(PersonDTO).GetProperty(SelectedSearchProperty);
+
+        var people = await _personService.GetAllAsync();
+        var filteredPeople = people.Where(person =>
+        {
+            var propertyValue = searchProperty.GetValue(person)?.ToString().ToLower();
+            return propertyValue.Contains(SearchingText, StringComparison.CurrentCultureIgnoreCase);
+        });
+        Items = new(filteredPeople);
     });
 }

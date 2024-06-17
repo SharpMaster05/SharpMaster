@@ -12,6 +12,8 @@
       Title="BuildView">
 
     <Grid MaxWidth="1000" Margin="10,0,60,0">
+
+
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
             <RowDefinition  MaxHeight="40"/>
@@ -21,11 +23,11 @@
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Text="People" Style="{DynamicResource Header}"/>
+        <TextBlock Text="Buildings" Style="{DynamicResource Header}"/>
 
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="0"/>
                 <ColumnDefinition Width="3*"/>
                 <ColumnDefinition Width="30"/>
                 <ColumnDefinition Width="1*"/>
@@ -34,27 +36,14 @@
             </Grid.ColumnDefinitions>
 
             <Border Grid.Column="1" Style="{DynamicResource TextBoxBorder}">
-                <TextBox Tag="search"/>
+                <TextBox Tag="search" Text="{Binding SearchingText}"/>
             </Border>
 
             <ComboBox Grid.Column="3" Style="{DynamicResource ComboBoxStyle}">
-                <ComboBoxItem Content="object 1"/>
-                <ComboBoxItem Content="object 2"/>
-                <ComboBoxItem Content="object 2"/>
-                <ComboBoxItem Content="object 2"/>
-                <ComboBoxItem Content="object 2"/>
-                <ComboBoxItem Content="object 2"/>
-                <ComboBoxItem Content="object 2"/>
-                <ComboBoxItem Content="object 2"/>
-                <ComboBoxItem Content="object 2"/>
-                <ComboBoxItem Content="object 2"/>
-                <ComboBoxItem Content="object 2"/>
-                <ComboBoxItem Content="object 2"/>
-                <ComboBoxItem Content="object 2"/>
-                <ComboBoxItem Content="object 3"/>
             </ComboBox>
 
-            <Button Grid.Column="2" Style="{DynamicResource CircleButton}">
+            <Button Grid.Column="2" Style="{DynamicResource CircleButton}"
+                Command="{Binding SerachCommand}">
                 <md:PackIcon Kind="Search" Width="20" Height="20"/>
             </Button>
 
@@ -67,41 +56,77 @@
             </Button>
         </Grid>
 
-        <Grid Grid.Row="3" Margin="100,0,0,0">
+        <Grid Grid.Row="3" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
+                <ColumnDefinition Width="30"/>
                 <ColumnDefinition Width="30"/>
                 <ColumnDefinition Width="30"/>
                 <ColumnDefinition Width="30"/>
             </Grid.ColumnDefinitions>
 
             <Border Style="{DynamicResource ListItemsCountBorder}">
-                <TextBlock Text="{Binding Items.Count}" Style="{DynamicResource ListItemsCountText}"/>
+                <TextBlock Text="{Binding Items.Count}"
+                       Style="{DynamicResource ListItemsCountText}"/>
             </Border>
 
             <Button Style="{DynamicResource AddButton}" 
-                Grid.Column="3">
+                Grid.Column="4"
+                Command="{Binding AddNewPersonCommand}">
                 <md:PackIcon Kind="AddBold"/>
             </Button>
 
             <Button Style="{DynamicResource EditButton}" 
-                Grid.Column="2">
+                Command="{Binding EditPersonCommand}"
+                Grid.Column="3">
                 <md:PackIcon Kind="Edit"/>
             </Button>
 
             <Button Style="{DynamicResource DeleteButton}" 
-                Grid.Column="1">
+                Command="{Binding DeleteCommand}"
+                Grid.Column="2">
                 <md:PackIcon Kind="Delete"/>
+            </Button>
+
+            <Button Style="{DynamicResource ReloadButton}" 
+                Command="{Binding ReloadCommand}"
+                Grid.Column="1">
+                <md:PackIcon Kind="DatabaseRefresh"/>
             </Button>
         </Grid>
 
-        <ScrollViewer Grid.Row="4">
-            <DataGrid ItemsSource="{Binding Items}">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="Name" Binding="{Binding Title}"/>
-                    <DataGridTextColumn Header="Title" Binding="{Binding Adress}"/>
-                </DataGrid.Columns>
-            </DataGrid>
-        </ScrollViewer>
+        <ItemsControl Grid.Row="4" 
+                  ItemsSource="{Binding Items}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <RadioButton Style="{DynamicResource ItemsControlRadioButton}"
+                             Command="{Binding DataContext.SelectedItemCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}"
+                             CommandParameter="{Binding}">
+                        <StackPanel>
+                            <Border CornerRadius="50" Width="100" Height="100">
+                                <Border.Background>
+                                    <ImageBrush ImageSource="{Binding ImagePath}"
+                                            Stretch="UniformToFill"/>
+                                </Border.Background>
+                            </Border>
+
+                            <TextBlock Text="{Binding Title}" Margin="0,10,0,0"
+                                   FontSize="14" HorizontalAlignment="Center"
+                                   Style="{DynamicResource ListItemsCountText}"/>
+
+                            <TextBlock Text="{Binding Adress}"
+                                   HorizontalAlignment="Center"
+                                   Style="{DynamicResource ListItemsCountText}"/>
+                        </StackPanel>
+                    </RadioButton>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+
     </Grid>
 </Page>

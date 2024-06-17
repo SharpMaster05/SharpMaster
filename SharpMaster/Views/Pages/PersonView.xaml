@@ -37,13 +37,25 @@
             </Grid.ColumnDefinitions>
 
             <Border Grid.Column="1" Style="{DynamicResource TextBoxBorder}">
-                <TextBox Tag="search"/>
+                <TextBox Tag="search" Text="{Binding SearchingText}"/>
             </Border>
 
-            <ComboBox Grid.Column="3" Style="{DynamicResource ComboBoxStyle}">
+            <ComboBox Grid.Column="3" 
+                      Style="{DynamicResource ComboBoxStyle}"
+                      SelectedIndex="0"
+                      SelectedValue="{Binding SelectedSearchProperty, Mode=TwoWay}"
+                      SelectedValuePath="Content">
+                
+                <ComboBoxItem Content="Name"/>
+                <ComboBoxItem Content="Lastname"/>
+                <ComboBoxItem Content="PhoneNumber"/>
+                <ComboBoxItem Content="Email"/>
+                <ComboBoxItem Content="Description"/>
+                <ComboBoxItem Content="Resume"/>
             </ComboBox>
 
-            <Button Grid.Column="2" Style="{DynamicResource CircleButton}">
+            <Button Grid.Column="2" Style="{DynamicResource CircleButton}"
+                    Command="{Binding SearchCommand}">
                 <md:PackIcon Kind="Search" Width="20" Height="20"/>
             </Button>
 

@@ -271,6 +271,7 @@
 
             <Frame Margin="60,30,0,0"
                    Name="Frame"
+                   Width="{Binding Navigation.Frame.Width}"
                    Opacity="{Binding Navigation.Frame.Opacity}"
                    Content="{Binding Navigation.Frame.Content}"
                    NavigationUIVisibility="Hidden"/>

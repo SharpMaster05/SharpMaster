@@ -44,7 +44,6 @@ internal class MainViewModel : Notifier
 
     public ICommand NavigateToPersonCommand => new Command(x => Navigation.ChangePage(_personPage));
     public ICommand NavigateToBuildCommand => new Command(x => Navigation.ChangePage(_buildPage));
-
     public ICommand ChangeThemeCommand => new Command(x => 
     {
         if (!IsChecked)

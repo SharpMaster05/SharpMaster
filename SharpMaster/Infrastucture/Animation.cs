@@ -27,6 +27,22 @@ internal class Animation
 
         border.BeginAnimation(FrameworkElement.WidthProperty , animation);
     }
+    
+    public void ChanegePageAnimation(Frame frame, Page page)
+    {
+        var time = TimeSpan.FromSeconds(0.7);
+
+        DoubleAnimation hideAnimation = new(1, 0, time) { EasingFunction = new PowerEase { Power = 3, EasingMode = EasingMode.EaseInOut } };
+
+        hideAnimation.Completed += (obj, e) => 
+        {
+            frame.Content = page;
+            DoubleAnimation fadeAnimation = new(0, 1, time) { EasingFunction = new PowerEase { Power = 3 , EasingMode = EasingMode.EaseInOut } };
+            frame.BeginAnimation(UIElement.OpacityProperty, fadeAnimation);
+        };
+
+        frame.BeginAnimation(UIElement.OpacityProperty, hideAnimation);
+    }
 
     public void MaximizeAnimation(Window window)
     {

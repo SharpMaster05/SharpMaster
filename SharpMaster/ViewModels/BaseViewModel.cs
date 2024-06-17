@@ -1,6 +1,9 @@
 ﻿using BLL.Abstractions;
+using BLL.DTO;
+using BLL.Services;
 using SharpMaster.Infrastucture;
 using System.Collections.ObjectModel;
+using System.Windows.Input;
 
 namespace SharpMaster.ViewModels;
 
@@ -14,4 +17,5 @@ internal class BaseViewModel<T> : Notifier where T : class, new()
         var items = await service.GetAllAsync();
         Items = new(items);
     }
+
 }
