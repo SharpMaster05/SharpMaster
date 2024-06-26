@@ -12,7 +12,7 @@ internal class BuildViewModel : BaseViewModel<BuildDTO>
 {
     private readonly BuildService _buildService;
     private readonly RegionService _regionService;
-    public BuildViewModel(BuildService buildService, RegionService regionService)
+    public BuildViewModel(BuildService buildService, RegionService regionService) : base(buildService)
     {
         _buildService = buildService;
         _regionService = regionService;

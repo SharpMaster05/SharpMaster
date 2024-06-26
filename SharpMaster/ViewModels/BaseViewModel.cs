@@ -12,15 +12,49 @@ namespace SharpMaster.ViewModels;
 
 internal class BaseViewModel<T> : Notifier where T : class, new()
 {
+    private readonly IService<T> _service;
+
+    public BaseViewModel(IService<T> service)
+    {
+        _service = service;
+    }
+
     public ObservableCollection<T> Items { get; set; }
     public T SelectedItem { get; set; }
     public string SearchingText { get; set; }
     public string SelectedSearchProperty { get; set; }
 
+    public int _itemsPerPage = 3;
+    public int ItemsPerPage 
+    {
+        get => _itemsPerPage; 
+        set
+        {
+            _itemsPerPage = value;
+            InitializeAsync(_service);
+            OnPropChanged();
+        }
+    }
+    public int MaxPageCount { get; set; }
+    
+    private int _currentPage;
+    public int CurrentPage
+    {
+        get => _currentPage;
+        set
+        {
+            _currentPage = value;
+            InitializeAsync(_service);
+            OnPropChanged();
+        }
+    }
+
     protected async void InitializeAsync(IService<T> service)
     {
         var items = await service.GetAllAsync();
-        Items = new(items);
+        var itemsPerPage = items.Skip((CurrentPage - 1) * ItemsPerPage).Take(ItemsPerPage);
+        Items = new(itemsPerPage);
+        MaxPageCount = (int)Math.Ceiling((double)Items.Count / ItemsPerPage);
     }
 
     protected void Add(Window view)
@@ -56,5 +90,11 @@ internal class BaseViewModel<T> : Notifier where T : class, new()
             return propertyValue.Contains(SearchingText, StringComparison.CurrentCultureIgnoreCase);
         });
         Items = new(filteredPeople);
+    }
+
+    private void UpdateItems()
+    {
+        var items = Items.Skip((CurrentPage - 1) * ItemsPerPage).Take(ItemsPerPage);
+        Items = new(items);
     }
 }

@@ -1,7 +1,28 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\CSharp\\WPF\\SharpMaster\\SharpMaster\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{213D581C-4AA8-423A-A2DD-716191F9F0C3}|SharpMaster\\SharpMaster.csproj|d:\\csharp\\wpf\\sharpmaster\\sharpmaster\\sharpmaster\\views\\pages\\personview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{213D581C-4AA8-423A-A2DD-716191F9F0C3}|SharpMaster\\SharpMaster.csproj|solutionrelative:sharpmaster\\views\\pages\\personview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{213D581C-4AA8-423A-A2DD-716191F9F0C3}|SharpMaster\\SharpMaster.csproj|d:\\csharp\\wpf\\sharpmaster\\sharpmaster\\sharpmaster\\viewmodels\\baseviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{213D581C-4AA8-423A-A2DD-716191F9F0C3}|SharpMaster\\SharpMaster.csproj|solutionrelative:sharpmaster\\viewmodels\\baseviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{213D581C-4AA8-423A-A2DD-716191F9F0C3}|SharpMaster\\SharpMaster.csproj|d:\\csharp\\wpf\\sharpmaster\\sharpmaster\\sharpmaster\\viewmodels\\pages\\regionviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{213D581C-4AA8-423A-A2DD-716191F9F0C3}|SharpMaster\\SharpMaster.csproj|solutionrelative:sharpmaster\\viewmodels\\pages\\regionviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{213D581C-4AA8-423A-A2DD-716191F9F0C3}|SharpMaster\\SharpMaster.csproj|d:\\csharp\\wpf\\sharpmaster\\sharpmaster\\sharpmaster\\viewmodels\\pages\\buildviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{213D581C-4AA8-423A-A2DD-716191F9F0C3}|SharpMaster\\SharpMaster.csproj|solutionrelative:sharpmaster\\viewmodels\\pages\\buildviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{213D581C-4AA8-423A-A2DD-716191F9F0C3}|SharpMaster\\SharpMaster.csproj|d:\\csharp\\wpf\\sharpmaster\\sharpmaster\\sharpmaster\\viewmodels\\pages\\personviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{213D581C-4AA8-423A-A2DD-716191F9F0C3}|SharpMaster\\SharpMaster.csproj|solutionrelative:sharpmaster\\viewmodels\\pages\\personviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 299,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -18,6 +39,70 @@
             {
               "$type": "Bookmark",
               "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "RegionViewModel.cs",
+              "DocumentMoniker": "D:\\CSharp\\WPF\\SharpMaster\\SharpMaster\\SharpMaster\\ViewModels\\Pages\\RegionViewModel.cs",
+              "RelativeDocumentMoniker": "SharpMaster\\ViewModels\\Pages\\RegionViewModel.cs",
+              "ToolTip": "D:\\CSharp\\WPF\\SharpMaster\\SharpMaster\\SharpMaster\\ViewModels\\Pages\\RegionViewModel.cs",
+              "RelativeToolTip": "SharpMaster\\ViewModels\\Pages\\RegionViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAABNAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-26T18:27:36.718Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "BuildViewModel.cs",
+              "DocumentMoniker": "D:\\CSharp\\WPF\\SharpMaster\\SharpMaster\\SharpMaster\\ViewModels\\Pages\\BuildViewModel.cs",
+              "RelativeDocumentMoniker": "SharpMaster\\ViewModels\\Pages\\BuildViewModel.cs",
+              "ToolTip": "D:\\CSharp\\WPF\\SharpMaster\\SharpMaster\\SharpMaster\\ViewModels\\Pages\\BuildViewModel.cs",
+              "RelativeToolTip": "SharpMaster\\ViewModels\\Pages\\BuildViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAABmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-26T18:27:26.909Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PersonViewModel.cs",
+              "DocumentMoniker": "D:\\CSharp\\WPF\\SharpMaster\\SharpMaster\\SharpMaster\\ViewModels\\Pages\\PersonViewModel.cs",
+              "RelativeDocumentMoniker": "SharpMaster\\ViewModels\\Pages\\PersonViewModel.cs",
+              "ToolTip": "D:\\CSharp\\WPF\\SharpMaster\\SharpMaster\\SharpMaster\\ViewModels\\Pages\\PersonViewModel.cs",
+              "RelativeToolTip": "SharpMaster\\ViewModels\\Pages\\PersonViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAABnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-26T18:20:24.295Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "BaseViewModel.cs",
+              "DocumentMoniker": "D:\\CSharp\\WPF\\SharpMaster\\SharpMaster\\SharpMaster\\ViewModels\\BaseViewModel.cs",
+              "RelativeDocumentMoniker": "SharpMaster\\ViewModels\\BaseViewModel.cs",
+              "ToolTip": "D:\\CSharp\\WPF\\SharpMaster\\SharpMaster\\SharpMaster\\ViewModels\\BaseViewModel.cs",
+              "RelativeToolTip": "SharpMaster\\ViewModels\\BaseViewModel.cs",
+              "ViewState": "AQIAABgAAAAAAAAAAAAkwCEAAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-26T18:10:59.688Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PersonView.xaml",
+              "DocumentMoniker": "D:\\CSharp\\WPF\\SharpMaster\\SharpMaster\\SharpMaster\\Views\\Pages\\PersonView.xaml",
+              "RelativeDocumentMoniker": "SharpMaster\\Views\\Pages\\PersonView.xaml",
+              "ToolTip": "D:\\CSharp\\WPF\\SharpMaster\\SharpMaster\\SharpMaster\\Views\\Pages\\PersonView.xaml",
+              "RelativeToolTip": "SharpMaster\\Views\\Pages\\PersonView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-06-26T18:03:10.567Z",
+              "EditorCaption": ""
             }
           ]
         }

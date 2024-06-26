@@ -13,7 +13,7 @@ internal class AddOrUpdateBuildViewModel : BaseViewModel<BuildDTO>
     private readonly RegionService _regionService;
     private readonly Animation _animation;
     private bool _isUpdating;
-    public AddOrUpdateBuildViewModel(BuildService buildService, RegionService regionService)
+    public AddOrUpdateBuildViewModel(BuildService buildService, RegionService regionService) : base(buildService)
     {
         _buildService = buildService;
         _regionService = regionService;

@@ -11,7 +11,7 @@ internal class PersonViewModel : BaseViewModel<PersonDTO>
 {
     private readonly PersonService _personService;
     private readonly BuildService _buildService;
-    public PersonViewModel(PersonService personService, BuildService buildService)
+    public PersonViewModel(PersonService personService, BuildService buildService) :base(personService)
     {
         _personService = personService;
         _buildService = buildService;

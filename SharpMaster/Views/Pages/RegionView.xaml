@@ -17,7 +17,7 @@
                    VerticalAlignment="Top"
                    Margin="0,30,0,0"/>
 
-        <Grid Margin="10,100,60,0" MaxWidth="1000">
+        <Grid Margin="30,100,10,0" MaxWidth="1000">
             
             <ScrollViewer x:Name="MainContent" Margin="0"
                           VerticalScrollBarVisibility="Hidden">

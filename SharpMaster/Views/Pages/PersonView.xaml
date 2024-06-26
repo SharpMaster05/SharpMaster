@@ -78,7 +78,7 @@
             </Grid.ColumnDefinitions>
 
             <Border Style="{DynamicResource ListItemsCountBorder}">
-                <TextBlock Text="{Binding Items.Count}"
+                <TextBlock Text="{Binding Items.Count, StringFormat=Count: {0}}"
                            Style="{DynamicResource ListItemsCountText}"/>
             </Border>
 
@@ -139,6 +139,14 @@
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
-        
+        <Grid Grid.Row="5">
+            <Slider Maximum="{Binding Items.Count}"
+                    Minimum="1"
+                    VerticalAlignment="Center"
+                    Value="{Binding CurrentPage}"
+                    TickFrequency="1"
+                    IsSnapToTickEnabled="True"
+                    AutoToolTipPlacement="BottomRight"/>
+        </Grid>
     </Grid>
 </Page>

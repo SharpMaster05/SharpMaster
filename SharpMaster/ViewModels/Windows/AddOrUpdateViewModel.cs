@@ -14,7 +14,7 @@ internal class AddOrUpdateViewModel : BaseViewModel<PersonDTO>
     private readonly PersonService _personService;
     private readonly BuildService _buildService;
     private bool _isUpdate;
-    public AddOrUpdateViewModel(PersonService personService, BuildService buildService)
+    public AddOrUpdateViewModel(PersonService personService, BuildService buildService) : base(personService)
     {
         _personService = personService;
         _buildService = buildService;
