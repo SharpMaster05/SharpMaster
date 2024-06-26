@@ -16,6 +16,9 @@
     <Compile Update="Views\Pages\RegionView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\Windows\AddOrUpdateBuildView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\Windows\AddOrUpdateView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -49,6 +52,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Pages\RegionView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Windows\AddOrUpdateBuildView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Windows\AddOrUpdateView.xaml">

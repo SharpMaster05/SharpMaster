@@ -32,6 +32,7 @@ internal class AddOrUpdateViewModel : BaseViewModel<PersonDTO>
             PersonImage.Source = new BitmapImage(new Uri(Person.ImagePath));
             _isUpdate = isUpdate;
             WindowTitle = $"Editing a person's {person.Name} {person.Lastname}";
+            Task.Run(async () => SelectedBuild = (await _buildService.GetAllAsync()).FirstOrDefault(x => x.Id == person.BuildId).Title);
         }
     }
 
@@ -43,7 +44,7 @@ internal class AddOrUpdateViewModel : BaseViewModel<PersonDTO>
 
     private async void AddOrUpdatePerson()
     {
-        var buildId = (await _buildService.GetAllAsync()).FirstOrDefault(x => x.Title == SelectedBuild).BuildId;
+        var buildId = (await _buildService.GetAllAsync()).FirstOrDefault(x => x.Title == SelectedBuild).Id;
         Person.BuildId = buildId;
 
         if (_isUpdate)

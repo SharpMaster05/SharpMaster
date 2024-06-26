@@ -1,0 +1,77 @@
+﻿<Window x:Class="SharpMaster.Views.Windows.AddOrUpdateBuildView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SharpMaster.Views.Windows"
+        xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:vm="clr-namespace:SharpMaster.ViewModels.Windows"
+        mc:Ignorable="d"
+        d:DataContext="{d:DesignInstance Type=vm:AddOrUpdateBuildViewModel}"
+        DataContext="{Binding Source={StaticResource DI}, Path=AddOrUpdateBuildViewModel}"
+        Title="AddOrUpdateBuildView" 
+        Height="200" Width="500"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="{x:Null}"
+        ResizeMode="NoResize"
+        MouseLeftButtonDown="Window_MouseLeftButtonDown">
+    
+    <Border Style="{DynamicResource MainBorder}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Button Style="{DynamicResource CircleButton}"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Right"
+                    Margin="10"
+                    Command="{Binding CloseCommand}"
+                    CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Border}}">
+                <md:PackIcon Kind="Close"/>
+            </Button>
+            
+            <TextBlock Text="{Binding WindowTitle}"
+                       Style="{DynamicResource Header}"/>
+
+            <UniformGrid Columns="3"
+                         Grid.Row="1">
+                <Border Height="40"
+                        Style="{DynamicResource TextBoxBorder}">
+                    <TextBox Tag="Title" Text="{Binding Build.Title}"/>
+                </Border>
+                <Border Style="{DynamicResource TextBoxBorder}"
+                        Height="40">
+                    <TextBox Tag="Adress" Text="{Binding Build.Adress}"/>
+                </Border>
+                <ComboBox Style="{DynamicResource ComboBoxStyle}"
+                          Height="40"
+                          SelectedValue="{Binding SelectedRegion}"
+                          ItemsSource="{Binding Regions}"/>
+            </UniformGrid>
+
+            <StackPanel Orientation="Horizontal"
+                        FlowDirection="RightToLeft"
+                        Grid.Row="2">
+                
+                <Button Style="{DynamicResource AddButton}"
+                        Margin="20,0,0,0"
+                        Command="{Binding AddCommand}"
+                        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Border}}">
+                    <md:PackIcon Kind="CheckBold" HorizontalAlignment="Center"/>
+                </Button>
+                
+                <Button Style="{DynamicResource DeleteButton}" 
+                        Margin="20,0,0,0"
+                        Command="{Binding CloseCommand}"
+                        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Border}}">
+                    <md:PackIcon Kind="Cancel"/>
+                </Button>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>

@@ -5,6 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:SharpMaster.Views.Pages"
       xmlns:vm="clr-namespace:SharpMaster.ViewModels.Pages"
+      xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
       d:DataContext="{d:DesignInstance Type=vm:RegionViewModel}"
       DataContext="{Binding Source={StaticResource DI}, Path=RegionViewModel}"
@@ -12,6 +13,32 @@
       Title="RegionView">
 
     <Grid>
-        
+        <TextBlock Text="Regions" Style="{DynamicResource Header}"
+                   VerticalAlignment="Top"
+                   Margin="0,30,0,0"/>
+
+        <Grid Margin="10,100,60,0" MaxWidth="1000">
+            
+            <ScrollViewer x:Name="MainContent" Margin="0"
+                          VerticalScrollBarVisibility="Hidden">
+                <ItemsControl ItemsSource="{Binding Items}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <RadioButton Style="{DynamicResource ItemsControlRadioButton}">
+                                <StackPanel>
+                                    <TextBlock Text="{Binding Title}"
+                                               Style="{DynamicResource ListItemsCountText}"/>
+                                </StackPanel>
+                            </RadioButton>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+        </Grid>
     </Grid>
 </Page>

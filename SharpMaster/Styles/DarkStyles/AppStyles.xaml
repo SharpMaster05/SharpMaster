@@ -69,7 +69,6 @@
                                       Focusable="false"
                                       IsChecked="{Binding Path=IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
                                       ClickMode="Press">
-                            
                             <ToggleButton.Style>
                                 <Style TargetType="ToggleButton">
                                     <Setter Property="Foreground" Value="{DynamicResource ForegroundGradient}"/>
@@ -80,6 +79,11 @@
                                         <Setter.Value>
                                             <ControlTemplate TargetType="ToggleButton">
                                                 <Grid>
+                                                    <md:PackIcon Kind="ArrowDownDropCircle"
+                                                                 HorizontalAlignment="Right"
+                                                                 Margin="10"
+                                                                 x:Name="Arrow"
+                                                                 VerticalAlignment="Center"/>
                                                     <Border x:Name="Border" CornerRadius="20" Background="{TemplateBinding Background}" 
                                                             BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1" />
                                                     <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
@@ -91,6 +95,9 @@
                                                                 <DropShadowEffect Color="White" ShadowDepth="0" BlurRadius="10"/>
                                                             </Setter.Value>
                                                         </Setter>
+                                                    </Trigger>
+                                                    <Trigger Property="IsChecked" Value="True">
+                                                        <Setter Property="Visibility" Value="Hidden" TargetName="Arrow"/>
                                                     </Trigger>
                                                 </ControlTemplate.Triggers>
                                             </ControlTemplate>
@@ -107,7 +114,6 @@
                                           Margin="10,3,23,3"
                                           VerticalAlignment="Center"
                                           HorizontalAlignment="Left"/>
-                        
                         
                         <Popup Name="Popup"
                                Placement="Bottom"

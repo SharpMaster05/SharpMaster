@@ -57,7 +57,7 @@ public class GenericService<DTO, Entity> : IService<DTO> where DTO : class, new(
 
     private int GetKey(Entity entity)
     {
-        var propertyInfo = entity.GetType().GetProperty("PersonId");
+        var propertyInfo = entity.GetType().GetProperty("Id");
         if (propertyInfo != null)
         {
             return (int)propertyInfo.GetValue(entity);

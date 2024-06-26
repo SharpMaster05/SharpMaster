@@ -99,10 +99,10 @@
                 </Border>
 
                 <ComboBox Grid.Row="3" Grid.Column="2"
-                      Style="{DynamicResource ComboBoxStyle}"
-                      ItemsSource="{Binding Buildings}"
-                      SelectedItem="{Binding SelectedBuild}"
-                      Margin="5,0" Height="40"/>
+                          Style="{DynamicResource ComboBoxStyle}"
+                          ItemsSource="{Binding Buildings}"
+                          SelectedItem="{Binding SelectedBuild}"
+                          Margin="5,0" Height="40"/>
 
             </Grid>
 

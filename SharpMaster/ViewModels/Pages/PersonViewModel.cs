@@ -1,6 +1,5 @@
 ﻿using BLL.DTO;
 using BLL.Services;
-using DAL.Models;
 using SharpMaster.Infrastucture;
 using SharpMaster.ViewModels.Windows;
 using SharpMaster.Views.Windows;
@@ -19,52 +18,11 @@ internal class PersonViewModel : BaseViewModel<PersonDTO>
 
         InitializeAsync(_personService);
     }
-
-    public string SearchingText { get; set; }
-    public string SelectedSearchProperty { get; set; }
-
+    public ICommand AddNewPersonCommand => new Command(x => Add(new AddOrUpdateView()));
+    public ICommand DeleteCommand => new Command(x => Delete(_personService), x => SelectedItem != null);
+    public ICommand EditPersonCommand => new Command(x => Edit(new AddOrUpdateView(), new AddOrUpdateViewModel(_personService, _buildService, SelectedItem, true))
+                                                     , x => SelectedItem != null);
     public ICommand SelectedItemCommand => new Command(x => SelectedItem = x as PersonDTO);
-    
-    public ICommand EditPersonCommand => new Command(x =>
-    {
-        AddOrUpdateView view = new AddOrUpdateView();
-        AddOrUpdateViewModel editPersonViewModel = new AddOrUpdateViewModel(_personService, _buildService, SelectedItem, true);
-        view.DataContext = editPersonViewModel;
-        view.ShowDialog();
-    }, x => SelectedItem != null);
-
-    public ICommand ReloadCommand => new Command(async x =>
-    {
-        var items = await _personService.GetAllAsync();
-        Items = new(items);
-    });
-    
-    public ICommand DeleteCommand => new Command(async x =>
-    {
-        await _personService.DeleteAsync(SelectedItem);
-        var items = await _personService.GetAllAsync();
-        Items = new(items);
-        SelectedItem = null;
-    },
-    x => SelectedItem != null);
-
-    public ICommand AddNewPersonCommand => new Command(x => 
-    {
-        AddOrUpdateView view = new AddOrUpdateView();
-        view.ShowDialog();
-    });
-
-
-    public ICommand SearchCommand => new Command(async x =>
-    {
-        var searchProperty = typeof(PersonDTO).GetProperty(SelectedSearchProperty);
-
-        var people = await _personService.GetAllAsync();
-        var filteredPeople = people.Where(person =>
-        {
-            var propertyValue = searchProperty.GetValue(person)?.ToString().ToLower();
-            return propertyValue.Contains(SearchingText, StringComparison.CurrentCultureIgnoreCase);
-        });
-        Items = new(filteredPeople);
-    });
+    public ICommand SearchCommand => new Command(x => Search(_personService));
+    public ICommand ReloadCommand => new Command(x => InitializeAsync(_personService));
 }

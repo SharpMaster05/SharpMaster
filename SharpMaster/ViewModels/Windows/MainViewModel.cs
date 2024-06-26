@@ -14,6 +14,7 @@ internal class MainViewModel : Notifier
 
     private Page _personPage;
     private Page _buildPage;
+    private Page _regionPage;
 
     public MainViewModel(Animation animation, Navigation navigation)
     {
@@ -22,6 +23,7 @@ internal class MainViewModel : Notifier
 
         _personPage = new Views.Pages.PersonView();
         _buildPage = new Views.Pages.BuildView();
+        _regionPage = new Views.Pages.RegionView();
 
         Navigation.Frame.Content = _personPage;
 
@@ -44,6 +46,7 @@ internal class MainViewModel : Notifier
 
     public ICommand NavigateToPersonCommand => new Command(x => Navigation.ChangePage(_personPage));
     public ICommand NavigateToBuildCommand => new Command(x => Navigation.ChangePage(_buildPage));
+    public ICommand NavigateToRegionCommand => new Command(x => Navigation.ChangePage(_regionPage));
     public ICommand ChangeThemeCommand => new Command(x => 
     {
         if (!IsChecked)

@@ -254,7 +254,8 @@
                             </Grid>
                         </RadioButton>
                         
-                        <RadioButton Style="{DynamicResource MenuButton}">
+                        <RadioButton Style="{DynamicResource MenuButton}"
+                                     Command="{Binding NavigateToRegionCommand}">
                             <Grid Height="40">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="30"/>
