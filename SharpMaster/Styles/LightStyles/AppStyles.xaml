@@ -3,31 +3,21 @@
                     xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes">
 
 
-    <SolidColorBrush x:Key="BorderBackground" Color="#ffcd5f" Opacity="0.5"/>
-    <SolidColorBrush x:Key="Green" Color="#36cc7a"/>
-    <SolidColorBrush x:Key="Yellow" Color="#ffb600"/>
-    <SolidColorBrush x:Key="Red" Color="#ff3b3b"/>
+    <SolidColorBrush x:Key="BorderBackground" Color="Black" Opacity="0.2"/>
+    <SolidColorBrush x:Key="Green" Color="#1aff9c"/>
+    <SolidColorBrush x:Key="Yellow" Color="#ffec5f"/>
+    <SolidColorBrush x:Key="Red" Color="#ff7680"/>
     <SolidColorBrush x:Key="Blue" Color="#0080ff"/>
-    
+    <SolidColorBrush x:Key="DarkGreen" Color="#004c3e"/>
+    <SolidColorBrush x:Key="DarkYellow" Color="#e6b500"/>
+    <SolidColorBrush x:Key="DarkRed" Color="#741600"/>
+    <SolidColorBrush x:Key="DarkBlue" Color="#001ca6"/>
+    <SolidColorBrush x:Key="BackgroundGradient" Color="White"/>
+    <SolidColorBrush x:Key="ForegroundGradient" Color="#202123"/>
+
     <LinearGradientBrush x:Key="UkraineFlag" StartPoint="0 0" EndPoint="0 1">
         <GradientStop Color="#0080ff" Offset="0.5"/>
         <GradientStop Color="#fcdb03" Offset="0.5"/>
-    </LinearGradientBrush>
-    
-    <LinearGradientBrush x:Key="ForegroundGradient">
-        <GradientStop Color="#3a1903" Offset="0"/>
-        <GradientStop Color="#512c14" Offset="0.25"/>
-        <GradientStop Color="#7a4e31" Offset="0.5"/>
-        <GradientStop Color="#512c14" Offset="0.75"/>
-        <GradientStop Color="#3a1903" Offset="1"/>
-    </LinearGradientBrush>
-
-    <LinearGradientBrush x:Key="BackgroundGradient"
-                         StartPoint="1 0" EndPoint="0 1">
-        <GradientStop Color="#85622c" Offset="0"/>
-        <GradientStop Color="#fae18c" Offset="0.35"/>
-        <GradientStop Color="#b78d3e" Offset="0.70"/>
-        <GradientStop Color="#85622c" Offset="1"/>
     </LinearGradientBrush>
     
     <LinearGradientBrush x:Key="BorderBrushGradient"

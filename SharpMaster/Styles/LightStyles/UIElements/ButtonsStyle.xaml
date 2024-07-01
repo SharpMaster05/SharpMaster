@@ -62,7 +62,7 @@
     </Style>
 
     <Style x:Key="CircleButton" TargetType="Button">
-        <Setter Property="Background" Value="{DynamicResource BackgroundGradient}"/>
+        <Setter Property="Background" Value="{DynamicResource BorderBackground}"/>
         <Setter Property="Width" Value="25"/>
         <Setter Property="Height" Value="25"/>
         <Setter Property="FontFamily" Value="Rubik Wet Paint"/>
@@ -139,18 +139,22 @@
 
     <Style x:Key="AddButton" BasedOn="{StaticResource CircleButton}" TargetType="Button">
         <Setter Property="Background" Value="{DynamicResource Green}"/>
+        <Setter Property="Foreground" Value="{DynamicResource DarkGreen}"/>
     </Style>
 
     <Style x:Key="EditButton" BasedOn="{StaticResource CircleButton}" TargetType="Button">
         <Setter Property="Background" Value="{DynamicResource Yellow}"/>
+        <Setter Property="Foreground" Value="{DynamicResource DarkYellow}"/>
     </Style>
 
     <Style x:Key="DeleteButton" BasedOn="{StaticResource CircleButton}" TargetType="Button">
         <Setter Property="Background" Value="{DynamicResource Red}"/>
+        <Setter Property="Foreground" Value="{DynamicResource DarkRed}"/>
     </Style>
 
     <Style x:Key="ReloadButton" BasedOn="{StaticResource CircleButton}" TargetType="Button">
         <Setter Property="Background" Value="{DynamicResource Blue}"/>
+        <Setter Property="Foreground" Value="{DynamicResource DarkBlue}"/>
     </Style>
 
     <Style x:Key="ItemsControlRadioButton" TargetType="RadioButton">
@@ -158,6 +162,7 @@
         <Setter Property="BorderBrush" Value="{x:Null}"/>
         <Setter Property="Width" Value="120"/>
         <Setter Property="Height" Value="170"/>
+        <Setter Property="Margin" Value="6"/>
         <Setter Property="GroupName" Value="Items"/>
         <Setter Property="Template">
             <Setter.Value>

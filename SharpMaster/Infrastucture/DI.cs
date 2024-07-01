@@ -35,18 +35,20 @@ internal class DI
         builder.AddTransient<RegionViewModel>();
         builder.AddTransient<AddOrUpdateViewModel>();
         builder.AddTransient<AddOrUpdateBuildViewModel>();
+        builder.AddTransient<PeopleFromBuildViewModel>();
+        builder.AddTransient<BuildListFromSelectedRegionViewModel>();
 
-        builder.AddScoped<IRepository<Person>, PersonRepository>();
-        builder.AddScoped<PersonService>();
+        builder.AddTransient<IRepository<Person>, PersonRepository>();
+        builder.AddTransient<PersonService>();
 
-        builder.AddScoped<IRepository<Build>, BuildRepository>();
-        builder.AddScoped<BuildService>();
+        builder.AddTransient<IRepository<Build>, BuildRepository>();
+        builder.AddTransient<BuildService>();
 
-        builder.AddScoped<IRepository<Region>, RegionRepository>();
-        builder.AddScoped<RegionService>();
+        builder.AddTransient<IRepository<Region>, RegionRepository>();
+        builder.AddTransient<RegionService>();
 
         builder.AddTransient<Animation>();
-        builder.AddTransient<Navigation>();
+        builder.AddSingleton<Navigation>();
 
         _provider = builder.BuildServiceProvider();
     }
@@ -57,4 +59,6 @@ internal class DI
     public RegionViewModel RegionViewModel => _provider.GetRequiredService<RegionViewModel>();
     public AddOrUpdateViewModel AddOrUpdateViewModel => _provider.GetRequiredService<AddOrUpdateViewModel>();
     public AddOrUpdateBuildViewModel AddOrUpdateBuildViewModel => _provider.GetRequiredService<AddOrUpdateBuildViewModel>();
+    public PeopleFromBuildViewModel PeopleFromBuildViewModel => _provider.GetRequiredService<PeopleFromBuildViewModel>();
+    public BuildListFromSelectedRegionViewModel BuildListFromSelectedRegionViewModel => _provider.GetRequiredService<BuildListFromSelectedRegionViewModel>();
 }

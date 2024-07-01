@@ -5,11 +5,14 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:vm="clr-namespace:SharpMaster.ViewModels.Pages"
       xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:cmd="http://www.galasoft.ch/mvvmlight"
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
       d:DataContext="{d:DesignInstance Type=vm:BuildViewModel}"
       DataContext="{Binding Source={StaticResource DI}, Path=BuildViewModel}"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="BuildView">
+      Title="BuildView"
+      Loaded="Page_Loaded">
 
     <Grid MaxWidth="1000" Margin="10,0,60,0">
 
@@ -101,31 +104,47 @@
             </Button>
         </Grid>
 
-        <ItemsControl Grid.Row="4" 
-                      ItemsSource="{Binding Items}">
-            <ItemsControl.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <WrapPanel/>
-                </ItemsPanelTemplate>
-            </ItemsControl.ItemsPanel>
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <RadioButton Style="{DynamicResource ItemsControlRadioButton}"
-                                 Command="{Binding DataContext.SelectedItemCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}"
-                                 CommandParameter="{Binding}">
-                        <StackPanel>
-                            <TextBlock Text="{Binding Title}" Margin="0,10,0,0"
-                                       FontSize="14" HorizontalAlignment="Center"
-                                       Style="{DynamicResource ListItemsCountText}"/>
+        <ScrollViewer Grid.Row="4" VerticalScrollBarVisibility="Hidden">
+            <ItemsControl ItemsSource="{Binding Items, UpdateSourceTrigger=PropertyChanged}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <RadioButton Style="{DynamicResource ItemsControlRadioButton}"
+                                     Command="{Binding DataContext.SelectedItemCommand, 
+                                           RelativeSource={RelativeSource AncestorType=ItemsControl}}"
+                                     CommandParameter="{Binding}">
+                            <StackPanel>
 
-                            <TextBlock Text="{Binding Adress}"
-                                       HorizontalAlignment="Center"
-                                       Style="{DynamicResource ListItemsCountText}"/>
-                        </StackPanel>
-                    </RadioButton>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
+                                <Border Background="{DynamicResource BorderBackground}"
+                                        CornerRadius="50"
+                                        Height="100"
+                                        Width="100">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="MouseLeftButtonDown">
+                                            <cmd:EventToCommand Command="{Binding DataContext.NavigateToPeoplePageCommand,
+                                                                    RelativeSource={RelativeSource AncestorType=ItemsControl}}"
+                                                                CommandParameter="{Binding}"/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </Border>
+
+                                <TextBlock Text="{Binding Title}" Margin="0,10,0,0"
+                                           FontSize="14" HorizontalAlignment="Center"
+                                           Style="{DynamicResource ListItemsCountText}"/>
+
+                                <TextBlock Text="{Binding Adress}"
+                                           HorizontalAlignment="Center"
+                                           Style="{DynamicResource ListItemsCountText}"/>
+                            </StackPanel>
+                        </RadioButton>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
 
     </Grid>
 </Page>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SharpMaster.ViewModels.Pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,12 @@ namespace SharpMaster.Views.Pages
         public RegionView()
         {
             InitializeComponent();
+        }
+
+        private async void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            var data = DataContext as RegionViewModel;
+            await data.InitializeAsync();
         }
     }
 }

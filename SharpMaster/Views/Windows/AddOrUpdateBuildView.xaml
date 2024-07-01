@@ -60,7 +60,7 @@
                 
                 <Button Style="{DynamicResource AddButton}"
                         Margin="20,0,0,0"
-                        Command="{Binding AddCommand}"
+                        Command="{Binding SaveCommand}"
                         CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Border}}">
                     <md:PackIcon Kind="CheckBold" HorizontalAlignment="Center"/>
                 </Button>

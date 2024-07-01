@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SharpMaster.ViewModels.Pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,6 +25,12 @@ namespace SharpMaster.Views.Pages
         public PersonView()
         {
             InitializeComponent();
+        }
+
+        private async void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            if(DataContext is  PersonViewModel viewModel) 
+                await viewModel.InitializeAsync();
         }
     }
 }

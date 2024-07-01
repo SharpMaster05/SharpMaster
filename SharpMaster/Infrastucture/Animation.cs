@@ -30,7 +30,7 @@ internal class Animation
     
     public void ChanegePageAnimation(Frame frame, Page page)
     {
-        var time = TimeSpan.FromSeconds(0.7);
+        var time = TimeSpan.FromSeconds(0.3);
 
         DoubleAnimation hideAnimation = new(1, 0, time) { EasingFunction = new PowerEase { Power = 3, EasingMode = EasingMode.EaseInOut } };
 

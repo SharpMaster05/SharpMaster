@@ -10,7 +10,8 @@
       d:DataContext="{d:DesignInstance Type=vm:RegionViewModel}"
       DataContext="{Binding Source={StaticResource DI}, Path=RegionViewModel}"
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="RegionView">
+      Title="RegionView"
+      Loaded="Page_Loaded">
 
     <Grid>
         <TextBlock Text="Regions" Style="{DynamicResource Header}"
@@ -21,7 +22,7 @@
             
             <ScrollViewer x:Name="MainContent" Margin="0"
                           VerticalScrollBarVisibility="Hidden">
-                <ItemsControl ItemsSource="{Binding Items}">
+                <ItemsControl ItemsSource="{Binding Items, UpdateSourceTrigger=PropertyChanged}">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
                             <WrapPanel/>
@@ -29,7 +30,10 @@
                     </ItemsControl.ItemsPanel>
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <RadioButton Style="{DynamicResource ItemsControlRadioButton}">
+                            <RadioButton Style="{DynamicResource ItemsControlRadioButton}"
+                                         Command="{Binding DataContext.SelectedRegionCommand,
+                                                   RelativeSource={RelativeSource AncestorType=ItemsControl}}"
+                                         CommandParameter="{Binding}">
                                 <StackPanel>
                                     <TextBlock Text="{Binding Title}"
                                                Style="{DynamicResource ListItemsCountText}"/>
